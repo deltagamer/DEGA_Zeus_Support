@@ -1,7 +1,7 @@
 DEGA: Zeus Support Modification
 ==============
 
-![AH99E Front View](https://raw.githubusercontent.com/deltagamer/DEGA_Zeus_Support/main/Release_Notes/20210725163705_1.jpg)
+![AH99E Front View](https://raw.githubusercontent.com/deltagamer/DEGA_Zeus_Support/main/Release_Notes/zeussupporticon.png)
 
 Features
 =========
