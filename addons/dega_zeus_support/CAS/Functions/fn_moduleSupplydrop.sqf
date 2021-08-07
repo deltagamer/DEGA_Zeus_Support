@@ -10,10 +10,9 @@ if (!isserver && {local _x} count (objectcurators _logic) == 0) exitwith {};
 _veh = _this select 0;
 _veh_type = (typeOf _veh);
 
-Supported_UK = ["LIB_MKI_HADRIAN_raf2","LIB_HORSA_RAF"];
-Supported_US = ["LIB_CG4_WACO","LIB_HORSA"];
+Supported_UK = ["LIB_HORSA_RAF"];
+Supported_US = ["LIB_HORSA"];
 Supported_ALL = Supported_US + Supported_UK;
-
 
 //Paradropping
 
@@ -37,6 +36,10 @@ if (_activated) then {
 	_planeClass = _logic getvariable ["vehicle","B_T_VTOL_01_infantry_F"];
 	_planeCfg = configfile >> "cfgvehicles" >> _planeClass;
 	if !(isclass _planeCfg) exitwith {["Vehicle class '%1' not found",_planeClass] call bis_fnc_error; false};
+	
+	_type_spawnClass = _logic getvariable ["type_spawn","B_UGV_01_rcws_F"];
+	_type_spawnCfg = configfile >> "cfgvehicles" >> _type_spawnClass;
+	if !(isclass _type_spawnCfg) exitwith {["Vehicle class '%1' not found",_type_spawnClass] call bis_fnc_error; false};	
 
 	//--- Restore custom direction
 	_dirVar = _fnc_scriptname + typeof _logic;
@@ -224,81 +227,43 @@ if (_activated) then {
 		};
 	};
 	
-	private ["_grp2","_man1","_man2","_openHeight","_jumpDelay","_jumperAmount","_side"];
+	//--- Create UGV
+	_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
+	_type_spawnPos set [2,(_pos select 2) + _alt];
+	_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
+	_type_spawnArray = [_type_spawnPos,_dir,_type_spawnClass,_type_spawnSide] call bis_fnc_spawnVehicle;
+	_type_spawn = _type_spawnArray select 0;
+	_type_spawn setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150];
+	
+	private ["_para","_paras","_p"];	
+	
+    waitUntil{((getPos _type_spawn)select 2) < 200};
+    if (isClass(configFile >> "CfgVehicles" >> "vn_b_wheeled_m54_03")) then {_para = "vn_b_parachute_02" createVehicle position _type_spawn;} else {_para = "B_Parachute_02_F" createVehicle position _type_spawn;};
+	_para setPos (getPos _type_spawn);			
+    _type_spawn attachTo [_para, [0,0,-1]];
 
-    _jumperAmount = param [9,1];
-    _jumpDelay = param [10,0.1];
-    _openHeight = param [11,200];
-    private _groupType = if (_planeSide getfriend west > 0.6) then {west} else {east};	
-	_grp2 = createGroup _groupType;	
-	_veh = _this select 0;
-    _veh_type = (typeOf _veh);
-	
-	//glider check
-	
-	for "_i" from 1 to _jumperAmount step 1 do
-	{
-		   //vanilla
-    	if (typeOf _plane == "B_T_VTOL_01_infantry_F") then { _man1 = selectRandom ["Box_NATO_AmmoVeh_F"]; }; 
-		if (typeOf _plane == "O_T_VTOL_02_infantry_dynamicLoadout_F") then { _man1 = selectRandom ["Box_East_AmmoVeh_F"]; };
-		//rhs
-		if (typeOf _plane == "RHS_C130J") then { _man1 = selectRandom ["Box_NATO_AmmoVeh_F"]; };
-		if (typeOf _plane == "RHS_TU95MS_vvs_old") then { _man1 = selectRandom ["Box_East_AmmoVeh_F"]; };		
-		//gm
-		if (typeOf _plane == "gm_ge_airforce_do28d2") then { _man1 = selectRandom ["Box_NATO_AmmoVeh_F"]; };	
-		if (typeOf _plane == "gm_gc_airforce_l410t") then { _man1 = selectRandom ["Box_East_AmmoVeh_F"]; };
-		//ifa3
-		if (typeOf _plane == "LIB_C47_RAF_snafu") then { _man1 = selectRandom ["Box_NATO_AmmoVeh_F"]; };	
-		if (typeOf _plane == "LIB_C47_RAF") then { _man1 = selectRandom ["Box_NATO_AmmoVeh_F"]; };	
-		if (typeOf _plane == "LIB_Li2") then { _man1 = selectRandom ["Box_East_AmmoVeh_F"]; };	
-		//cup
-		/*
-		if (typeOf _plane == "CUP_B_MV22_USMC") then { _man1 = selectRandom ["CUP_B_USMC_MARSOC_Medic_DA", "CUP_B_USMC_MARSOC_AR_DA"]; }; //maybe ''
-		if (typeOf _plane == "CUP_B_C130J_USMC") then { _man1 = selectRandom ["CUP_B_USMC_Soldier", "CUP_B_USMC_Soldier_LAT"]; };
-		if (typeOf _plane == "CUP_B_C47_USA") then { _man1 = selectRandom ["CUP_B_US_Soldier_OCP", "CUP_B_US_Soldier_LAT_OCP"]; };
-		if (typeOf _plane == "CUP_B_C130J_GB") then { _man1 = selectRandom ["CUP_B_BAF_Soldier_Rifleman_MTP", "CUP_B_BAF_Soldier_RiflemanAT_MTP"]; };
-		if (typeOf _plane == "CUP_O_C47_SLA") then { _man1 = selectRandom ["CUP_O_TK_Soldier", "CUP_O_TK_Soldier_AT"]; };
-		if (typeOf _plane == "CUP_O_C130J_TKA") then { _man1 = selectRandom ["CUP_O_TK_Soldier", "CUP_O_TK_Soldier_AT"]; };
-        */
-		_man2 = createVehicle [_man1, [(getPos _logic) select 0,(getPos _logic) select 1, ((getPos _logic) select 2) - 3], [], 0, "NONE"];
-		_man2 setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150]; //(getPos _logic) select 0,(getPos _logic) select 1, ((getPos _logic) select 2) - 3
-		[_man2,_openHeight] spawn
-		{
-			params ["_man2","_openHeight","_para"];
-			waitUntil{((getPos _man2)select 2)<_openHeight};
-        	if (isClass(configFile >> "CfgVehicles" >> "vn_b_wheeled_m54_03")) then
-            {
-           		_para = "vn_b_parachute_02" createVehicle position _man2;
-       	    } else {
-            	_para = "B_Parachute_02_F" createVehicle position _man2;
-        	};
-			//_para = "gm_parachute_t10" createVehicle position _man2;
-			_para setPos (getPos _man2);
-			_man2 attachTo [_para, [0, 0, 0]];			
-		};		
-		_man2 allowFleeing 0;
-		_placed = _man2;
-    	{ _x addCuratorEditableObjects [[_placed],true] } forEach (allCurators);	
-		sleep _jumpDelay; 		
-	};
-	
     _flare = if (sunOrMoon <0.5) then {"F_20mm_Yellow"} else {"smokeShellYellow"}; 
-	_flarill = _flare createvehicle getPosATL _man2; 
-	_flarill attachTo [_man2,[0,0,-2]];
-	_man2 addAction ["<t color='#0099FF'>Virtual Arsenal</t>",{["Open", true] spawn bis_fnc_arsenal},[false],6,false,true,"","(_target distance _this) < 7"];	
+	_flarill = _flare createvehicle getPosATL _type_spawn; 
+	_flarill attachTo [_type_spawn,[0,0,-2]];
+	_type_spawn addAction ["<t color='#0099FF'>Virtual Arsenal</t>",{["Open", true] spawn bis_fnc_arsenal},[false],6,false,true,"","(_target distance _this) < 7"];	
 		
-	if !(isnull _logic) then {
+	{ _x addCuratorEditableObjects [[_type_spawn],true] } forEach (allCurators);
+
+
+	if !(isnull _logic) then 
+	{
 		sleep 1;
 		deletevehicle _logic;
 		
-	    waitUntil {position _man2 select 2 < 3}; 
-        detach _man2;		
+	    waitUntil {position _type_spawn select 2 < 3}; 
+        detach _type_spawn;		
 		
 		waituntil {_plane distance _pos > _dis || !alive _plane};
 	};
 
 	//--- Delete plane
-	if (alive _plane) then {
+	if (alive _plane) then 
+	{
 		_group = group _plane;
 		_crew = crew _plane;
 		deletevehicle _plane;

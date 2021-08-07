@@ -7,6 +7,7 @@
 
 #define _ARMA_
 
+
 class CfgPatches
 {
 	class DEGA_Zeus_Support
@@ -398,7 +399,7 @@ class CfgVehicles
 		{
 			class Vehicle
 			{
-				displayName = "Supply Box Aircraft Selection";
+				displayName = "Supply Drop - Aircraft Selection";
 				description = "";
 				class values
 				{
@@ -413,6 +414,7 @@ class CfgVehicles
 					{
 						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "O_T_VTOL_02_infantry_dynamicLoadout_F";
+						default = 1;						
 					};
 					//rhs
 					class RHS_C130J 
@@ -449,6 +451,33 @@ class CfgVehicles
 					};				
 				};
 			};
+			class UGV
+			{
+				displayName = "Supply Drop - Box Selection";
+				description = "";
+				class values
+				{
+					//vanilla
+					class Box_NATO_AmmoVeh_F //B_Plane_CAS_01_F
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Box_NATO_AmmoVeh_F"; //B_Plane_CAS_01_F
+						default = 1;
+					};						
+					class Box_East_AmmoVeh_F
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "Box_East_AmmoVeh_F";
+						default = 1;						
+					};
+					class Box_IND_AmmoVeh_F 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Box_IND_AmmoVeh_F"; 
+						default = 1;						
+					};	
+				};
+			};			
 		};
 		class ModuleDescription: ModuleDescription
 		{
@@ -475,7 +504,7 @@ class CfgVehicles
 		{
 			class Vehicle
 			{
-				displayName = "Vehicle Drop Aircraft Selection";
+				displayName = "Vehicle Drop - Aircraft Selection";
 				description = "";
 				class values
 				{
@@ -531,6 +560,141 @@ class CfgVehicles
 					};											
 				};
 			};
+			class UGV
+			{
+				displayName = "Vehicle Drop - Vehicle Selection";
+				description = "";
+				class values
+				{
+					//vanilla
+					class B_LSV_01_unarmed_F //B_Plane_CAS_01_F
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_LSV_01_unarmed_F"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class B_LSV_01_armed_F //B_Plane_CAS_01_F
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_LSV_01_armed_F"; //B_Plane_CAS_01_F
+					};
+					class B_LSV_01_AT_F //B_Plane_CAS_01_F
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_LSV_01_AT_F"; //B_Plane_CAS_01_F
+					};
+					class O_T_LSV_02_unarmed_F //B_Plane_CAS_01_F
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "O_T_LSV_02_unarmed_F"; //B_Plane_CAS_01_F
+					};
+					class O_T_LSV_02_armed_F //B_Plane_CAS_01_F
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "O_T_LSV_02_armed_F"; //B_Plane_CAS_01_F
+					};					
+					class O_T_LSV_02_AT_F
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "O_T_LSV_02_AT_F";						
+					};
+					class rhsusf_m998_w_s_4dr 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhsusf_m998_w_s_4dr"; 						
+					};	
+					class rhsusf_m1043_w_s_m2 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhsusf_m1043_w_s_m2"; 						
+					};	
+					class rhsusf_m1043_w_s_mk19 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhsusf_m1043_w_s_mk19"; 						
+					};	
+					class rhsusf_m1045_w_s 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhsusf_m1045_w_s"; 						
+					};	
+					class rhs_bmd1p 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhs_bmd1p"; 						
+					};	
+					class rhs_bmd1r 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhs_bmd1r"; 						
+					};	
+					class rhs_bmd2m 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhs_bmd2m"; 						
+					};
+					class rhs_bmd4m_vdv 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhs_bmd4m_vdv"; 						
+					};	
+					class rhs_sprut_vdv 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhs_sprut_vdv"; 						
+					};	
+					class gm_ge_army_iltis_cargo 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "gm_ge_army_iltis_cargo"; 						
+					};	
+					class gm_ge_army_iltis_mg3 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "gm_ge_army_iltis_mg3"; 						
+					};	
+					class gm_ge_army_iltis_milan 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "gm_ge_army_iltis_milan"; 						
+					};	
+					class gm_gc_army_uaz469_cargo 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "gm_gc_army_uaz469_cargo"; 						
+					};
+					class gm_gc_army_uaz469_dshkm 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "gm_gc_army_uaz469_dshkm"; 						
+					};	
+					class gm_gc_army_uaz469_spg9 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "gm_gc_army_uaz469_spg9"; 						
+					};	
+					class LIB_M8_Greyhound 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_M8_Greyhound"; 						
+					};					
+					class LIB_UK_Willys_MB 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_UK_Willys_MB"; 						
+					};	
+					class LIB_UK_Willys_MB_M1919 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_UK_Willys_MB_M1919"; 						
+					};	
+					class LIB_Willys_MB 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_Willys_MB"; 						
+					};						
+				};
+			};			
 		};
 		class ModuleDescription: ModuleDescription
 		{
@@ -557,7 +721,7 @@ class CfgVehicles
 		{
 			class Vehicle
 			{
-				displayName = "UGV drop Aircraft Selection";
+				displayName = "UGV Drop - Aircraft Selection";
 				description = "";
 				class values
 				{
@@ -567,11 +731,12 @@ class CfgVehicles
 						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "B_T_VTOL_01_infantry_F"; //B_Plane_CAS_01_F
 						default = 1;
-					};
+					};						
 					class O_T_VTOL_02_infantry_dynamicLoadout_F
 					{
 						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "O_T_VTOL_02_infantry_dynamicLoadout_F";
+						default = 1;
 					};
 					//rhs
 					class RHS_C130J 
@@ -586,6 +751,33 @@ class CfgVehicles
 					};	
 				};
 			};
+			class UGV
+			{
+				displayName = "UGV Drop - Vehicle Selection";
+				description = "";
+				class values
+				{
+					//vanilla
+					class B_UGV_01_rcws_F //B_Plane_CAS_01_F
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_UGV_01_rcws_F"; //B_Plane_CAS_01_F
+						default = 1;
+					};						
+					class O_UGV_01_rcws_F
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "O_UGV_01_rcws_F";
+						default = 1;						
+					};
+					class I_UGV_01_rcws_F 
+					{
+						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "I_UGV_01_rcws_F"; 
+						default = 1;						
+					};	
+				};
+			};		
 		};
 		class ModuleDescription: ModuleDescription
 		{
@@ -605,7 +797,7 @@ class CfgVehicles
 		displayName = "Paradrop Unit Reinforcements";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceGunMissile.p3d";
-		curatorInfoType = "RscDisplayAttributesModuleCAS";
+		curatorInfoType = "RscDisplayAttributesModuleParadrop";
 		curatorCost = 1;
 		moduleCAStype = 0;
 		function = "DEGA_fnc_moduleParadrop";		
@@ -639,7 +831,7 @@ class CfgVehicles
 		displayName = "Airdrop Virtual Supply Box";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceGunMissile.p3d";
-		curatorInfoType = "RscDisplayAttributesModuleCAS";
+		curatorInfoType = "RscDisplayAttributesModuleParadrop";
 		curatorCost = 1;
 		moduleCAStype = 0;
 		function = "DEGA_fnc_moduleSupplydrop";		
@@ -653,10 +845,10 @@ class CfgVehicles
 		scopeCurator = 2;
 		simulation = "house";
 		category = "DEGA_Zeus_Airdrop";
-		displayName = "Airdrop Empty Vehicle";
+		displayName = "Airdrop Vehicle";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceGunMissile.p3d";
-		curatorInfoType = "RscDisplayAttributesModuleCAS";
+		curatorInfoType = "RscDisplayAttributesModuleVehicledrop";
 		curatorCost = 1;
 		moduleCAStype = 0;
 		function = "DEGA_fnc_moduleVehicledrop";		
@@ -673,10 +865,316 @@ class CfgVehicles
 		displayName = "UGV Airdrop Insertion";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceGunMissile.p3d";
-		curatorInfoType = "RscDisplayAttributesModuleCAS";
+		curatorInfoType = "RscDisplayAttributesModuleVehicledrop";
 		curatorCost = 1;
 		moduleCAStype = 0;
 		function = "DEGA_fnc_moduleUGVdrop";		
 		delete Arguments;
 	};	
+};
+class CfgScriptPaths
+{
+    Dega_CuratorCommon = "dega_zeus_support\data\RscCommon\";
+};
+class RscControlsGroupNoScrollbars;
+class RscAttributeCAS;
+class RscText;
+class RscButton;
+class TabSide;
+class RscCheckbox;
+class RscListNBox;
+class RscActivePicture;
+class RscButtonMenuOK;
+class RscButtonMenuCancel;
+class RscToolboxButton;
+class RscCombo;
+class RscDisplayAttributes
+{
+	class Controls
+	{
+		class Background;
+		class Title;
+		class Content
+		{
+			class Controls;
+		};
+		class ButtonOK;
+		class ButtonCancel;		
+	};
+};
+class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
+{
+	scriptName = "RscDisplayAttributesModuleCAS";
+	scriptPath = "CuratorDisplays";
+	onLoad = "[""onLoad"",_this,""RscDisplayAttributesModuleParadrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "[""onUnload"",_this,""RscDisplayAttributesModuleParadrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	class Controls: Controls
+	{
+		class Background: Background
+		{
+			colorBackground[] = {0,0,0,0.7};
+			idc = 30001;
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "26 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class Title: Title
+		{
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
+			idc = 30002;
+			text = "UGV Selection Menu";
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class Content: Content
+		{
+			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "23.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";			
+			class Controls: controls
+			{		
+				class CAS: RscControlsGroupNoScrollbars 
+				{
+					onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+					idc = 12190; //12190
+					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
+					y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					class controls
+					{
+						class Title: RscText
+						{
+							style = 16;
+							idc = 1892; //10890
+							text = "$STR_DN_Plane";
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							colorBackground[] = {0,0,0,0.5};
+						};
+						class Value: RscListNBox
+						{
+							columns[] = {0.0,0.1,0.25};
+							colorSelect[] = {0.95,0.95,0.95,1};
+							colorSelect2[] = {0.95,0.95,0.95,1};
+							colorSelectBackground[] = {1,1,1,0.25};
+							colorSelectBackground2[] = {1,1,1,0.25};
+							idc = 1893; //11390
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+						};
+					};					
+				};						
+		        class UGV: RscControlsGroupNoScrollbars 
+				{
+				    //onSetFocus = "[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+					idc = 12190;
+					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					class controls
+					{
+						class Title: RscText
+						{
+							style = 16;
+							idc = 1895;
+							text = "UGV";
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							colorBackground[] = {0,0,0,0.5};
+						};
+						class Value: RscListNBox
+						{
+							columns[] = {0.0,0.1,0.25};
+							colorSelect[] = {0.95,0.95,0.95,1};
+							colorSelect2[] = {0.95,0.95,0.95,1};
+							colorSelectBackground[] = {1,1,1,0.25};
+							colorSelectBackground2[] = {1,1,1,0.25};
+							idc = 1896;
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+						};
+					};					
+				};			
+			};
+		};
+		class ButtonOK: RscButtonMenuOK
+		{
+			x = "28.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "27.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class ButtonCancel: RscButtonMenuCancel
+		{
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "27.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+	};
+};
+class RscDisplayAttributesModuleVehicledrop: RscDisplayAttributes
+{
+	idd = 1890;
+	scriptName = "RscDisplayAttributesModuleCAS";
+	scriptPath = "CuratorDisplays";
+	onLoad = "[""onLoad"",_this,""RscDisplayAttributesModuleVehicledrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "[""onUnload"",_this,""RscDisplayAttributesModuleVehicledrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	class Controls: Controls
+	{
+		class Background: Background
+		{
+			colorBackground[] = {0,0,0,0.7};
+			idc = 30001;
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "26 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class Title: Title
+		{
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
+			idc = 30002;
+			text = "UGV Selection Menu";
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class Content: Content
+		{
+			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "23.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";			
+			class Controls: controls
+			{		
+				class CAS: RscControlsGroupNoScrollbars 
+				{
+					onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+					idc = 12190; //12190
+					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
+					y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					class controls
+					{
+						class Title: RscText
+						{
+							style = 16;
+							idc = 1892; //10890
+							text = "Aircraft Selection";
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							colorBackground[] = {0,0,0,0.5};
+						};
+						class Value: RscListNBox
+						{
+							columns[] = {0.0,0.1,0.25};
+							colorSelect[] = {0.95,0.95,0.95,1};
+							colorSelect2[] = {0.95,0.95,0.95,1};
+							colorSelectBackground[] = {1,1,1,0.25};
+							colorSelectBackground2[] = {1,1,1,0.25};
+							idc = 1893; //11390
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+						};						
+					};					
+				};						
+		        class UGV: RscControlsGroupNoScrollbars 
+				{
+				    //onSetFocus = "[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+					idc = 12190;
+					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					class controls
+					{
+						class Title: RscText
+						{
+							style = 16;
+							idc = 1895;
+							text = "Object Drop Seelction";
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							colorBackground[] = {0,0,0,0.5};
+						};
+						class Value: RscListNBox
+						{
+							columns[] = {0.0,0.1,0.25};
+							colorSelect[] = {0.95,0.95,0.95,1};
+							colorSelect2[] = {0.95,0.95,0.95,1};
+							colorSelectBackground[] = {1,1,1,0.25};
+							colorSelectBackground2[] = {1,1,1,0.25};
+							idc = 1896;
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+						};						
+					};					
+				};				
+			};
+		};
+		class Yes_No_Title: RscText
+		{
+			idc = 1898;
+			text = "Vehicle Has Crew?";
+			x = "12 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "25.7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "9 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
+		};						
+		class Yes_No: RscCheckbox
+		{
+			idc = 1899;
+			//onCheckedChanged = "";
+			//onLoad = "myDisplay_CHECKED = (_this select 0)";
+			checked = 1;
+			x = "20 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "25.7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};			
+		class ButtonOK: RscButtonMenuOK
+		{
+			x = "28.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "27.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class ButtonCancel: RscButtonMenuCancel
+		{
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "27.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};		
+	};
 };
