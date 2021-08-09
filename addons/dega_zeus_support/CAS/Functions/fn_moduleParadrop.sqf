@@ -1,3 +1,6 @@
+#include "\dega_zeus_support\data\DEGA_defineResinclDesign.inc"
+#include "\A3\ui_f_curator\UI\defineResinclDesign.inc"
+#include "\A3\ui_f\hpp\defineCommonGrids.inc"
 
 _logic = _this select 0;
 _units = _this select 1;
@@ -6,14 +9,9 @@ _activated = _this select 2;
 //--- Terminate on client (unless it's curator who created the module)
 if (!isserver && {local _x} count (objectcurators _logic) == 0) exitwith {};
 
-
-_veh = _this select 0;
-_veh_type = (typeOf _veh);
-
-Supported_UK = ["LIB_MKI_HADRIAN_raf2","LIB_HORSA_RAF"];
-Supported_US = ["LIB_CG4_WACO","LIB_HORSA"];
+Supported_UK = ["LIB_HORSA_RAF","LIB_MKI_HADRIAN_raf2"];
+Supported_US = ["LIB_HORSA","LIB_CG4_WACO"];
 Supported_ALL = Supported_US + Supported_UK;
-
 
 //Paradropping
 
@@ -22,6 +20,7 @@ if (_activated) then {
 	//--- Wait for params to be set
 	if (_logic call bis_fnc_isCuratorEditable) then {
 		waituntil {!isnil {_logic getvariable "vehicle"} || isnull _logic};
+	
 	};
 	if (isnull _logic) exitwith {};
 
@@ -37,6 +36,10 @@ if (_activated) then {
 	_planeClass = _logic getvariable ["vehicle","B_T_VTOL_01_infantry_F"];
 	_planeCfg = configfile >> "cfgvehicles" >> _planeClass;
 	if !(isclass _planeCfg) exitwith {["Vehicle class '%1' not found",_planeClass] call bis_fnc_error; false};
+	
+	_type_spawnClass = _logic getvariable ["type_spawn","BUS_InfSquad"];
+	_type_spawnCfg = configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> _type_spawnClass;
+	if !(isclass _type_spawnCfg) exitwith {["Vehicle class '%1' not found",_type_spawnClass] call bis_fnc_error; false};
 
 	//--- Restore custom direction
 	_dirVar = _fnc_scriptname + typeof _logic;
@@ -121,7 +124,6 @@ if (_activated) then {
 		}
 	];
 	_plane setvariable ["ehFired",_ehFired];
-
 
 	_plane setvariable ["logic",_logic];
 	_logic setvariable ["plane",_plane];	
@@ -224,19 +226,8 @@ if (_activated) then {
 		};
 	};
 	
-	private ["_grp2","_man1","_man2","_openHeight","_jumpDelay","_jumperAmount","_side"];
-
-    _jumperAmount = param [9,5];
-    _jumpDelay = param [10,0.1];
-    _openHeight = param [11,200];
-    private _groupType = if (_planeSide getfriend west > 0.6) then {west} else {east};	
-	_grp2 = createGroup _groupType;	
-	
-	_veh = _this select 0;
-    _veh_type = (typeOf _veh);
-	
 	//glider check
-	if ((typeOf _plane) in Supported_ALL) then 
+	if (!(_plane isEqualTo objNull) && (typeOf _plane) in Supported_ALL) then 
 	{ 
 	    _plane allowdamage false;
 	    sleep 1; 
@@ -244,87 +235,73 @@ if (_activated) then {
 		sleep 3; 
 		_plane setVelocity [(vectorDir _plane select 0)*3,(vectorDir _plane select 1)*3,(vectorDir _plane select 2)*3]; 
 
-	    for "_i" from 1 to param [9,10] step 1 do
-	    {
-	        //ifa3
-	        if ((typeOf _plane) in Supported_US) then { _man1 = selectRandom ["LIB_US_101AB_rifleman", "LIB_US_101AB_AT_soldier"]; };	
-	        if ((typeOf _plane) in Supported_UK) then { _man1 = selectRandom ["LIB_UK_Para_Rifleman", "LIB_UK_Para_AT_Soldier"]; };	
-	
-	        _man2 = _grp2 createUnit [_man1, [(getPos _plane) select 0,(getPos _plane) select 1, ((getPos _plane) select 2) - 3], [], 0, "NONE"];
-		    _man2 setPos [(getPos _plane) select 0,(getPos _plane) select 1, 0];
-		    
-		    _man2 allowFleeing 0;
-		    _placed = _man2;
-    	    { _x addCuratorEditableObjects [[_placed,_plane],true] } forEach (allCurators);	
-	        sleep _jumpDelay;
-	    };
-		_creweject = crew _plane;
-		doGetOut _creweject;
+		{ _plane deleteVehicleCrew _x } forEach crew _plane;
 		_plane animate ["canopy",1];
 		_plane animate ["DoorR",1];
 		_plane animate ["DoorL",1];
 		_plane animate ["cargobay",1];
 		
+		//--- Create UGV
+		_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
+		_type_spawnPos set [2,(_pos select 2) + _alt];
+		_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
+		//_type_spawnArray = [_type_spawnPos,_dir,_type_spawnClass,_type_spawnSide] call bis_fnc_spawnVehicle;
+        _type_spawnArray = [_type_spawnPos, _type_spawnSide, _type_spawnClass] call BIS_fnc_spawnGroup;
+		_type_spawn = _type_spawnArray select 0;
+		_type_spawn setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150];
+		_type_spawn setPosATL [(getPosATL _plane select 0) - 8, (getPosATL _plane select 1) + 15, (getPosATL _plane select 2)];
+		
+		{ _x addCuratorEditableObjects [[_type_spawn],true] } forEach (allCurators);
+		{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
+		
 	} else {
 	
-		for "_i" from 1 to _jumperAmount step 1 do
-		{
-		    //vanilla
-    		if (typeOf _plane == "B_T_VTOL_01_infantry_F") then { _man1 = selectRandom ["B_Soldier_F", "B_soldier_LAT_F"]; }; 
-			if (typeOf _plane == "O_T_VTOL_02_infantry_dynamicLoadout_F") then { _man1 = selectRandom ["O_T_Soldier_F", "O_T_Soldier_LAT_F"]; };
-			//rhs
-			if (typeOf _plane == "RHS_C130J") then { _man1 = selectRandom ["rhsusf_army_ucp_rifleman_arb_m16", "rhsusf_army_ucp_arb_riflemanat"]; };
-			if (typeOf _plane == "RHS_TU95MS_vvs_old") then { _man1 = selectRandom ["rhs_vdv_recon_rifleman","rhs_vdv_recon_rifleman_lat"]; };		
-			//gm
-			if (typeOf _plane == "gm_ge_airforce_do28d2") then { _man1 = selectRandom ["gm_ge_army_rifleman_g36a1_90_flk", "gm_ge_army_antitank_g36a1_pzf3_90_flk"]; };	
-			if (typeOf _plane == "gm_gc_airforce_l410t") then { _man1 = selectRandom ["gm_gc_army_rifleman_mpiak74n_80_str", "gm_gc_army_antitank_mpiak74n_rpg7_80_str"]; };
-			//ifa3
-			if (typeOf _plane == "LIB_C47_RAF_snafu") then { _man1 = selectRandom ["LIB_US_101AB_rifleman", "LIB_US_101AB_AT_soldier"]; };	
-			if (typeOf _plane == "LIB_C47_RAF") then { _man1 = selectRandom ["LIB_UK_Para_Rifleman", "LIB_UK_Para_AT_Soldier"]; };	
-			if (typeOf _plane == "LIB_Li2") then { _man1 = selectRandom ["LIB_SOV_scout_atrifle_assistant", "LIB_SOV_scout_atrifle_gunner"]; };	
-			//cup
-			if (typeOf _plane == "CUP_B_MV22_USMC") then { _man1 = selectRandom ["CUP_B_USMC_MARSOC_Medic_DA", "CUP_B_USMC_MARSOC_AR_DA"]; };
-			if (typeOf _plane == "CUP_B_C130J_USMC") then { _man1 = selectRandom ["CUP_B_USMC_Soldier", "CUP_B_USMC_Soldier_LAT"]; };
-			if (typeOf _plane == "CUP_B_C47_USA") then { _man1 = selectRandom ["CUP_B_US_Soldier_OCP", "CUP_B_US_Soldier_LAT_OCP"]; };
-			if (typeOf _plane == "CUP_B_C130J_GB") then { _man1 = selectRandom ["CUP_B_BAF_Soldier_Rifleman_MTP", "CUP_B_BAF_Soldier_RiflemanAT_MTP"]; };
-			if (typeOf _plane == "CUP_O_C47_SLA") then { _man1 = selectRandom ["CUP_O_TK_Soldier", "CUP_O_TK_Soldier_AT"]; };
-			if (typeOf _plane == "CUP_O_C130J_TKA") then { _man1 = selectRandom ["CUP_O_TK_Soldier", "CUP_O_TK_Soldier_AT"]; };
-
-			_man2 = _grp2 createUnit [_man1, [(getPos _logic) select 0,(getPos _logic) select 1, ((getPos _logic) select 2) - 3], [], 0, "NONE"];
-			_man2 setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150]; //(getPos _logic) select 0,(getPos _logic) select 1, ((getPos _logic) select 2) - 3
-			[_man2,_openHeight] spawn
-			{
-				params ["_man2","_openHeight","_para"];
-				waitUntil{((getPos _man2)select 2)<_openHeight};
-        		if (isClass(configFile >> "CfgVehicles" >> "gm_ge_airforce_do28d2")) then
-        		{
-           		    _para = "gm_parachute_t10" createVehicle position _man2;
-       		    } else {
-            		_para = "NonSteerable_Parachute_F" createVehicle position _man2;
-        		};
-				//_para = "gm_parachute_t10" createVehicle position _man2;
-				_para setPos (getPos _man2);
-				_man2 moveInAny _para;
-			};
-			_man2 allowFleeing 0;
-			_placed = _man2;
-    		{ _x addCuratorEditableObjects [[_placed],true] } forEach (allCurators);	
-			sleep _jumpDelay;
-	    };
-	
-	}; //glider check
-	
-	sleep 1;
-	_plane allowdamage true;
+		//--- Create UGV
+		_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
+		_type_spawnPos set [2,(_pos select 2) + _alt];
+		_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
+		//_type_spawnArray = [_type_spawnPos,_dir,_type_spawnClass,_type_spawnSide] call bis_fnc_spawnVehicle;
+        //_type_spawnArray = [_type_spawnPos, _type_spawnSide, _type_spawnClass] call BIS_fnc_spawnGroup;
+		_type_spawnArray = [_type_spawnPos, _type_spawnSide, (_type_spawnCfg),[],[],[],[],[],_dir] call BIS_fnc_spawnGroup;
+		//_type_spawn_group = (Units _type_spawnArray) select 0;
+		_type_spawn = (Units _type_spawnArray); 
 		
-	if !(isnull _logic) then {
+	    private ["_para","_paras","_p"];
+		
+		{
+			_x setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150]; 
+ 		    waitUntil{((getPos _x)select 2) < 200};
+    	    if (isClass(configFile >> "CfgVehicles" >> "gm_ge_airforce_do28d2")) then {_para = "gm_parachute_t10" createVehicle position _x;} else {_para = "NonSteerable_Parachute_F" createVehicle position _x;};
+			_para setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150];
+			_para remoteExecCall ["disableCollisionWith", 0, _para];
+			{ _x addCuratorEditableObjects [[_para],true] } forEach (allCurators);
+    	    _x moveInAny _para;		
+			_x allowFleeing 0;
+		} foreach _type_spawn;
+		
+	    if !(isnull _logic) then 
+	    {
+		    sleep 1;
+		    deletevehicle _logic;	
+		
+	        //waitUntil {position _type_spawn select 2 < 3}; 
+            // detach _type_spawn;			
+		
+		    waituntil {_plane distance _pos > _dis || !alive _plane};
+	    };	
+	}; //glider check	
+
+	if !(isnull _logic) then 
+	{
 		sleep 1;
-		deletevehicle _logic;
+		deletevehicle _logic;	
+		
 		waituntil {_plane distance _pos > _dis || !alive _plane};
 	};
 
 	//--- Delete plane
-	if (alive _plane) then {
+	if (alive _plane) then 
+	{
 		_group = group _plane;
 		_crew = crew _plane;
 		deletevehicle _plane;

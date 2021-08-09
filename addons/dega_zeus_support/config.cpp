@@ -97,142 +97,130 @@ class CfgVehicles
 		curatorCost = 5;
 		class Arguments
 		{
-			/*
-			class Type
-			{
-				displayName = "$STR_A3_CfgVehicles_ModuleOrdnance_F_Arguments_Type";
-				description = "";
-				typeName = "NUMBER";
-				class values
-				{
-					class Gun
-					{
-						name = "$STR_A3_CfgVehicles_ModuleCAS_F_Arguments_Type_values_Gun";
-						value = 0;
-						default = 1;
-					};
-					class Missiles
-					{
-						name = "$STR_A3_CfgVehicles_ModuleCAS_F_Arguments_Type_values_Missiles";
-						value = 1;
-					};
-					class GunMissiles
-					{
-						name = "$STR_A3_CfgVehicles_ModuleCAS_F_Arguments_Type_values_GunMissiles";
-						value = 2;
-					};
-				};
-			};*/
 			class Vehicle
 			{
-				displayName = "Paradrop Unit Aircraft Selection";
+				displayName = "Vehicle Drop - Aircraft Selection";
 				description = "";
 				class values
 				{
 					//vanilla
 					class B_T_VTOL_01_infantry_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "B_T_VTOL_01_infantry_F"; //B_Plane_CAS_01_F
 						default = 1;
 					};
 					class O_T_VTOL_02_infantry_dynamicLoadout_F
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "O_T_VTOL_02_infantry_dynamicLoadout_F";
 					};
 					//rhs
 					class RHS_C130J 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "RHS_C130J"; 
 					};	
 					class RHS_TU95MS_vvs_old 
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "RHS_TU95MS_vvs_old"; 
 					};	
                     //gm					
 					class gm_ge_airforce_do28d2
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_ge_airforce_do28d2";
 					};						
 					class gm_gc_airforce_l410t
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "gm_gc_airforce_l410t";
 					};
-					//ifa3
-					class LIB_CG4_WACO
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "LIB_CG4_WACO";
-					};						
-					class LIB_HORSA
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "LIB_HORSA";
-					};	
+					//ifa3	
 					class LIB_C47_RAF_snafu
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_C47_RAF_snafu";
-					};
-					class LIB_MKI_HADRIAN_raf2
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "LIB_MKI_HADRIAN_raf2";
-					};						
-					class LIB_HORSA_RAF
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "LIB_HORSA_RAF";
-					};	
+					};					
 					class LIB_C47_RAF
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_C47_RAF";
+					};
+					class LIB_HORSA
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_HORSA";
 					};	
+					class LIB_HORSA_RAF
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_HORSA_RAF";
+					};
+					class LIB_CG4_WACO
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_CG4_WACO";
+					};	
+					class LIB_MKI_HADRIAN_raf2
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_MKI_HADRIAN_raf2";
+					};					
 					class LIB_Li2
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "LIB_Li2";
-					};	
-					/*
+					};
 					//CUP
 					class CUP_B_MV22_USMC
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "CUP_B_MV22_USMC";
 					};
 					class CUP_B_C130J_USMC
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "CUP_B_C130J_USMC";
 					};
 					class CUP_B_C47_USA
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "CUP_B_C47_USA";
 					};
 					class CUP_B_C130J_GB
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "CUP_B_C130J_GB";
 					};		
 					class CUP_O_C47_SLA
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "CUP_O_C47_SLA";
 					};
 					class CUP_O_C130J_TKA
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "CUP_O_C130J_TKA";
-					};	*/				
+					};																
 				};
 			};
+			class UGV
+			{
+				displayName = "Group Drop - Group Selection";
+				description = "";
+				class values
+				{
+					//vanilla
+					class BUS_InfSquad //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "BUS_InfSquad"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+				};
+			};			
 		};
 		class ModuleDescription: ModuleDescription
 		{
@@ -264,113 +252,18 @@ class CfgVehicles
 				class values
 				{
 					//blufor
-					class TIOW_Drop_Pod_UM //B_Plane_CAS_01_F
+					class TIOW_Drop_Pod_BT //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_UM"; //B_Plane_CAS_01_F
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_BT"; //B_Plane_CAS_01_F
 						default = 1;
 					};
-					class TIOW_Drop_Pod_BT
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_BT";
-					};	
-					class TIOW_Drop_Pod_BA
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_BA";
-					};	
-					class TIOW_Drop_Pod_BR
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_BR";
-					};	
-					class TIOW_Drop_Pod_DA
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_DA";
-					};	
-					class TIOW_Drop_Pod_DA_HH
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_DA_HH";
-					};	
-					class TIOW_Drop_Pod_IF
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_IF";
-					};	
-					class TIOW_Drop_Pod_IH
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_IH";
-					};	
-					class TIOW_Drop_Pod_RG
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_RG";
-					};	
-					class TIOW_Drop_Pod_SAL
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_SAL";
-					};	
-					class TIOW_Drop_Pod_SW
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_SW";
-					};
-					class TIOW_Drop_Pod_WS
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "TIOW_Drop_Pod_WS";
-					};	
 					//opfor
-					class TIOW_Drop_Pod_AL
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "TIOW_Drop_Pod_AL";
-					};	
-					class TIOW_Drop_Pod_BL
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "TIOW_Drop_Pod_BL";
-					};	
-					class TIOW_Drop_Pod_DG
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "TIOW_Drop_Pod_DG";
-					};	
 					class TIOW_Drop_Pod_EC
 					{
 						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "TIOW_Drop_Pod_EC";
-					};	
-					class TIOW_Drop_Pod_IW
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "TIOW_Drop_Pod_IW";
-					};	
-					class TIOW_Drop_Pod_NL
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "TIOW_Drop_Pod_NL";
-					};	
-					class TIOW_Drop_Pod_TS
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "TIOW_Drop_Pod_TS";
-					};	
-					class TIOW_Drop_Pod_WB
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "TIOW_Drop_Pod_WB";
-					};	
-					class TIOW_Drop_Pod_WE
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "TIOW_Drop_Pod_WE";
-					};							
+					};						
 				};
 			};
 		};		
@@ -406,47 +299,52 @@ class CfgVehicles
 					//vanilla
 					class B_T_VTOL_01_infantry_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "B_T_VTOL_01_infantry_F"; //B_Plane_CAS_01_F
 						default = 1;
 					};
 					class O_T_VTOL_02_infantry_dynamicLoadout_F
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "O_T_VTOL_02_infantry_dynamicLoadout_F";
 						default = 1;						
 					};
 					//rhs
 					class RHS_C130J 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "RHS_C130J"; 
 					};	
 					class RHS_TU95MS_vvs_old 
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "RHS_TU95MS_vvs_old"; 
 					};	
                     //gm					
 					class gm_ge_airforce_do28d2
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_ge_airforce_do28d2";
 					};						
 					class gm_gc_airforce_l410t
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "gm_gc_airforce_l410t";
 					};
 					//ifa3
+					class LIB_C47_RAF_snafu
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_C47_RAF_snafu";
+					};					
 					class LIB_C47_RAF
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_C47_RAF";
 					};	
 					class LIB_Li2
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "LIB_Li2";
 					};				
 				};
@@ -460,19 +358,19 @@ class CfgVehicles
 					//vanilla
 					class Box_NATO_AmmoVeh_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "Box_NATO_AmmoVeh_F"; //B_Plane_CAS_01_F
 						default = 1;
 					};						
 					class Box_East_AmmoVeh_F
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "Box_East_AmmoVeh_F";
 						default = 1;						
 					};
 					class Box_IND_AmmoVeh_F 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "Box_IND_AmmoVeh_F"; 
 						default = 1;						
 					};	
@@ -511,53 +409,104 @@ class CfgVehicles
 					//vanilla
 					class B_T_VTOL_01_infantry_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "B_T_VTOL_01_infantry_F"; //B_Plane_CAS_01_F
 						default = 1;
 					};
 					class O_T_VTOL_02_infantry_dynamicLoadout_F
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "O_T_VTOL_02_infantry_dynamicLoadout_F";
 					};
 					//rhs
 					class RHS_C130J 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "RHS_C130J"; 
 					};	
 					class RHS_TU95MS_vvs_old 
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "RHS_TU95MS_vvs_old"; 
 					};	
                     //gm					
 					class gm_ge_airforce_do28d2
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_ge_airforce_do28d2";
 					};						
 					class gm_gc_airforce_l410t
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "gm_gc_airforce_l410t";
 					};
-					//ifa3				
+					//ifa3	
+					class LIB_C47_RAF_snafu
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_C47_RAF_snafu";
+					};					
 					class LIB_C47_RAF
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_C47_RAF";
-					};	
-					class LIB_Li2
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "LIB_Li2";
-					};						
+					};
 					class LIB_HORSA
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_HORSA";
-					};											
+					};	
+					class LIB_HORSA_RAF
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_HORSA_RAF";
+					};
+					class LIB_CG4_WACO
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_CG4_WACO";
+					};	
+					class LIB_MKI_HADRIAN_raf2
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_MKI_HADRIAN_raf2";
+					};					
+					class LIB_Li2
+					{
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "LIB_Li2";
+					};
+					//CUP
+					class CUP_B_MV22_USMC
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CUP_B_MV22_USMC";
+					};
+					class CUP_B_C130J_USMC
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CUP_B_C130J_USMC";
+					};
+					class CUP_B_C47_USA
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CUP_B_C47_USA";
+					};
+					class CUP_B_C130J_GB
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CUP_B_C130J_GB";
+					};		
+					class CUP_O_C47_SLA
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CUP_O_C47_SLA";
+					};
+					class CUP_O_C130J_TKA
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CUP_O_C130J_TKA";
+					};																
 				};
 			};
 			class UGV
@@ -569,130 +518,169 @@ class CfgVehicles
 					//vanilla
 					class B_LSV_01_unarmed_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "B_LSV_01_unarmed_F"; //B_Plane_CAS_01_F
 						default = 1;
 					};	
 					class B_LSV_01_armed_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "B_LSV_01_armed_F"; //B_Plane_CAS_01_F
 					};
 					class B_LSV_01_AT_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "B_LSV_01_AT_F"; //B_Plane_CAS_01_F
 					};
 					class O_T_LSV_02_unarmed_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "O_T_LSV_02_unarmed_F"; //B_Plane_CAS_01_F
 					};
 					class O_T_LSV_02_armed_F //B_Plane_CAS_01_F
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "O_T_LSV_02_armed_F"; //B_Plane_CAS_01_F
 					};					
 					class O_T_LSV_02_AT_F
 					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "O_T_LSV_02_AT_F";						
 					};
+					class B_UGV_01_rcws_F //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_UGV_01_rcws_F"; //B_Plane_CAS_01_F
+					};						
+					class O_UGV_01_rcws_F
+					{
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "O_UGV_01_rcws_F";						
+					};
+					class I_UGV_01_rcws_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "I_UGV_01_rcws_F"; 						
+					};					
+					// RHS
 					class rhsusf_m998_w_s_4dr 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhsusf_m998_w_s_4dr"; 						
 					};	
 					class rhsusf_m1043_w_s_m2 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhsusf_m1043_w_s_m2"; 						
 					};	
 					class rhsusf_m1043_w_s_mk19 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhsusf_m1043_w_s_mk19"; 						
 					};	
 					class rhsusf_m1045_w_s 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhsusf_m1045_w_s"; 						
 					};	
 					class rhs_bmd1p 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhs_bmd1p"; 						
 					};	
 					class rhs_bmd1r 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhs_bmd1r"; 						
 					};	
 					class rhs_bmd2m 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhs_bmd2m"; 						
 					};
 					class rhs_bmd4m_vdv 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhs_bmd4m_vdv"; 						
 					};	
 					class rhs_sprut_vdv 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "rhs_sprut_vdv"; 						
 					};	
+					// GM
 					class gm_ge_army_iltis_cargo 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_ge_army_iltis_cargo"; 						
 					};	
 					class gm_ge_army_iltis_mg3 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_ge_army_iltis_mg3"; 						
 					};	
 					class gm_ge_army_iltis_milan 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_ge_army_iltis_milan"; 						
 					};	
 					class gm_gc_army_uaz469_cargo 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_gc_army_uaz469_cargo"; 						
 					};
 					class gm_gc_army_uaz469_dshkm 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_gc_army_uaz469_dshkm"; 						
 					};	
 					class gm_gc_army_uaz469_spg9 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "gm_gc_army_uaz469_spg9"; 						
 					};	
+					// IFA3
 					class LIB_M8_Greyhound 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_M8_Greyhound"; 						
+					};	
+					class LIB_US_Willys_MB 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_US_Willys_MB"; 						
+					};	
+					class LIB_US_Willys_MB_M1919 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_US_Willys_MB_M1919"; 						
+					};	
+					class LIB_US_Willys_MB_Ambulance 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_US_Willys_MB_Ambulance"; 						
+					};							
+					class LIB_UniversalCarrier 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_UniversalCarrier"; 						
 					};					
 					class LIB_UK_Willys_MB 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_UK_Willys_MB"; 						
-					};	
+					};						
 					class LIB_UK_Willys_MB_M1919 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_UK_Willys_MB_M1919"; 						
 					};	
-					class LIB_Willys_MB 
+					class LIB_UK_Willys_MB_Ambulance 
 					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "LIB_Willys_MB"; 						
-					};						
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "LIB_UK_Willys_MB_Ambulance"; 						
+					};	
+						
 				};
 			};			
 		};
@@ -702,90 +690,7 @@ class CfgVehicles
 			position = 1;
 			direction = 1;
 		};
-	};
-	class Base_ModuleUGVdrop_F: Module_F
-	{
-		author = "$STR_A3_Bohemia_Interactive";
-		_generalMacro = "Base_ModuleSupplydrop_F";
-		scope = 1;
-		scopeCurator = 0;
-		isGlobal = 1;
-		isTriggerActivated = 1;
-		category = "DEGA_Zeus_Airdrop";
-		displayName = "DEGA Airdrops (Module - 0)";
-		icon = "\a3\Modules_F_Curator\Data\iconCAS_ca.paa";
-		portrait = "\a3\Modules_F_Curator\Data\portraitCAS_ca.paa";
-		function = "DEGA_fnc_moduleUGVdrop";
-		curatorCost = 5;
-		class Arguments
-		{
-			class Vehicle
-			{
-				displayName = "UGV Drop - Aircraft Selection";
-				description = "";
-				class values
-				{
-					//vanilla
-					class B_T_VTOL_01_infantry_F //B_Plane_CAS_01_F
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "B_T_VTOL_01_infantry_F"; //B_Plane_CAS_01_F
-						default = 1;
-					};						
-					class O_T_VTOL_02_infantry_dynamicLoadout_F
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "O_T_VTOL_02_infantry_dynamicLoadout_F";
-						default = 1;
-					};
-					//rhs
-					class RHS_C130J 
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "RHS_C130J"; 
-					};	
-					class RHS_TU95MS_vvs_old 
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "RHS_TU95MS_vvs_old"; 
-					};	
-				};
-			};
-			class UGV
-			{
-				displayName = "UGV Drop - Vehicle Selection";
-				description = "";
-				class values
-				{
-					//vanilla
-					class B_UGV_01_rcws_F //B_Plane_CAS_01_F
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "B_UGV_01_rcws_F"; //B_Plane_CAS_01_F
-						default = 1;
-					};						
-					class O_UGV_01_rcws_F
-					{
-						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
-						value = "O_UGV_01_rcws_F";
-						default = 1;						
-					};
-					class I_UGV_01_rcws_F 
-					{
-						name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "I_UGV_01_rcws_F"; 
-						default = 1;						
-					};	
-				};
-			};		
-		};
-		class ModuleDescription: ModuleDescription
-		{
-			description = "$STR_A3_CfgVehicles_ModuleCAS_F_ModuleDescription";
-			position = 1;
-			direction = 1;
-		};
-	};		
+	};	
 	class ModuleParadrop_F: Base_ModuleParadrop_F
 	{
 		author = "Deltagamer";
@@ -817,7 +722,7 @@ class CfgVehicles
 		curatorInfoType = "RscDisplayAttributesModuleCAS";
 		curatorCost = 1;
 		moduleCAStype = 0;
-		function = "DEGA_fnc_moduleDroppod";		
+		function = "RscDisplayAttributesModuleParadrop";		
 		delete Arguments;
 	};	
 	class ModuleSupplydrop_F: Base_ModuleSupplydrop_F
@@ -853,24 +758,7 @@ class CfgVehicles
 		moduleCAStype = 0;
 		function = "DEGA_fnc_moduleVehicledrop";		
 		delete Arguments;
-	};	
-	class ModuleUGVdrop_F: Base_ModuleUGVdrop_F
-	{
-		author = "Deltagamer";
-		_generalMacro = "ModuleVehicledrop_F";
-		scope = 1;
-		scopeCurator = 2;
-		simulation = "house";
-		category = "DEGA_Zeus_Airdrop";
-		displayName = "UGV Airdrop Insertion";
-		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
-		model = "\a3\Modules_F_Curator\CAS\surfaceGunMissile.p3d";
-		curatorInfoType = "RscDisplayAttributesModuleVehicledrop";
-		curatorCost = 1;
-		moduleCAStype = 0;
-		function = "DEGA_fnc_moduleUGVdrop";		
-		delete Arguments;
-	};	
+	};
 };
 class CfgScriptPaths
 {
@@ -902,8 +790,10 @@ class RscDisplayAttributes
 		class ButtonCancel;		
 	};
 };
+
 class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 {
+	idd = 1890;
 	scriptName = "RscDisplayAttributesModuleCAS";
 	scriptPath = "CuratorDisplays";
 	onLoad = "[""onLoad"",_this,""RscDisplayAttributesModuleParadrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
@@ -923,7 +813,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 		{
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
 			idc = 30002;
-			text = "UGV Selection Menu";
+			text = "Object Selection Menu";
 			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -939,7 +829,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 			{		
 				class CAS: RscControlsGroupNoScrollbars 
 				{
-					onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+					onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeGROUP"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
 					idc = 12190; //12190
 					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
 					y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
@@ -951,7 +841,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 						{
 							style = 16;
 							idc = 1892; //10890
-							text = "$STR_DN_Plane";
+							text = "Aircraft Selection";
 							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -971,7 +861,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-						};
+						};						
 					};					
 				};						
 		        class UGV: RscControlsGroupNoScrollbars 
@@ -988,7 +878,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 						{
 							style = 16;
 							idc = 1895;
-							text = "UGV";
+							text = "Group Drop Selection";
 							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -1008,11 +898,11 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-						};
+						};						
 					};					
-				};			
+				};				
 			};
-		};
+		};	
 		class ButtonOK: RscButtonMenuOK
 		{
 			x = "28.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
@@ -1026,7 +916,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 			y = "27.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-		};
+		};		
 	};
 };
 class RscDisplayAttributesModuleVehicledrop: RscDisplayAttributes
@@ -1051,7 +941,7 @@ class RscDisplayAttributesModuleVehicledrop: RscDisplayAttributes
 		{
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
 			idc = 30002;
-			text = "UGV Selection Menu";
+			text = "Object Selection Menu";
 			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -1116,7 +1006,7 @@ class RscDisplayAttributesModuleVehicledrop: RscDisplayAttributes
 						{
 							style = 16;
 							idc = 1895;
-							text = "Object Drop Seelction";
+							text = "Object Drop Selection";
 							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";

@@ -9,12 +9,8 @@ _activated = _this select 2;
 //--- Terminate on client (unless it's curator who created the module)
 if (!isserver && {local _x} count (objectcurators _logic) == 0) exitwith {};
 
-
-_veh = _this select 0;
-_veh_type = (typeOf _veh);
-
-Supported_UK = ["LIB_HORSA_RAF"];
-Supported_US = ["LIB_HORSA"];
+Supported_UK = ["LIB_HORSA_RAF","LIB_MKI_HADRIAN_raf2"];
+Supported_US = ["LIB_HORSA","LIB_CG4_WACO"];
 Supported_ALL = Supported_US + Supported_UK;
 
 //Paradropping
@@ -129,7 +125,6 @@ if (_activated) then {
 	];
 	_plane setvariable ["ehFired",_ehFired];
 
-
 	_plane setvariable ["logic",_logic];
 	_logic setvariable ["plane",_plane];	
 
@@ -231,42 +226,82 @@ if (_activated) then {
 		};
 	};
 	
-	//--- Create UGV
-	_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
-	_type_spawnPos set [2,(_pos select 2) + _alt];
-	_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
-	_type_spawnArray = [_type_spawnPos,_dir,_type_spawnClass,_type_spawnSide] call bis_fnc_spawnVehicle;
-	_type_spawn = _type_spawnArray select 0;
-	_type_spawn setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150];
-	
-	//--- Check Box
-	_checkClass = _logic getvariable "VehicleCrew";
-	if (_checkClass == true) then {nil} else {{ _type_spawn deleteVehicleCrew _x } forEach crew _type_spawn;};
-	
-	private ["_para","_paras","_p"];	
-	
-    waitUntil{((getPos _type_spawn)select 2) < 200};
-    if (isClass(configFile >> "CfgVehicles" >> "vn_b_wheeled_m54_03")) then {_para = "vn_b_parachute_02" createVehicle position _type_spawn;} else {_para = "B_Parachute_02_F" createVehicle position _type_spawn;};
-	_para setPos (getPos _type_spawn);			
-    _paras =  [_para];
-    _type_spawn attachTo [_para, [0,0,-1]];
-    {
-        if (isClass(configFile >> "CfgVehicles" >> "vn_b_wheeled_m54_03")) then {_p = "vn_b_parachute_02" createVehicle position _para;} else {_p = "B_Parachute_02_F" createVehicle position _para;};
-        _paras set [count _paras, _p];
-        _p attachTo [_para, [0,0,0]];
-        _p setVectorUp _x;
-    } count [[0.5,0.4,0.6],[-0.5,0.4,0.6],[0.5,-0.4,0.6],[-0.5,-0.4,0.6]];	
-		
-	{ _x addCuratorEditableObjects [[_type_spawn],true] } forEach (allCurators);
+	//glider check
+	if (!(_plane isEqualTo objNull) && (typeOf _plane) in Supported_ALL) then 
+	{ 
+	    _plane allowdamage false;
+	    sleep 1; 
+	    _plane setVelocity [(vectorDir _plane select 0)*25,(vectorDir _plane select 1)*25,(vectorDir _plane select 2)*25];
+		sleep 3; 
+		_plane setVelocity [(vectorDir _plane select 0)*3,(vectorDir _plane select 1)*3,(vectorDir _plane select 2)*3]; 
 
+		{ _plane deleteVehicleCrew _x } forEach crew _plane;
+		_plane animate ["canopy",1];
+		_plane animate ["DoorR",1];
+		_plane animate ["DoorL",1];
+		_plane animate ["cargobay",1];
+		
+		//--- Create UGV
+		_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
+		_type_spawnPos set [2,(_pos select 2) + _alt];
+		_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
+		_type_spawnArray = [_type_spawnPos,_dir,_type_spawnClass,_type_spawnSide] call bis_fnc_spawnVehicle;
+		_type_spawn = _type_spawnArray select 0;
+		//_type_spawn setPos [(getPos _plane) select 0,(getPos _plane) select 1, 5];
+		_type_spawn setPosATL [(getPosATL _plane select 0) - 8, (getPosATL _plane select 1) + 15, (getPosATL _plane select 2)];
+	
+		//--- Check Box
+		_checkClass = _logic getvariable "VehicleCrew";
+		if (_checkClass == true) then {nil} else {{ _type_spawn deleteVehicleCrew _x } forEach crew _type_spawn;};
+		
+		{ _x addCuratorEditableObjects [[_type_spawn],true] } forEach (allCurators);
+		{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
+		
+	} else {
+	
+		//--- Create UGV
+		_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
+		_type_spawnPos set [2,(_pos select 2) + _alt];
+		_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
+		_type_spawnArray = [_type_spawnPos,_dir,_type_spawnClass,_type_spawnSide] call bis_fnc_spawnVehicle;
+		_type_spawn = _type_spawnArray select 0;
+		_type_spawn setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150];
+	
+		//--- Check Box
+		_checkClass = _logic getvariable "VehicleCrew";
+		if (_checkClass == true) then {nil} else {{ _type_spawn deleteVehicleCrew _x } forEach crew _type_spawn;};
+	
+	    private ["_para","_paras","_p"];	
+	
+ 	    waitUntil{((getPos _type_spawn)select 2) < 200};
+	    if (isClass(configFile >> "CfgVehicles" >> "vn_b_wheeled_m54_03")) then {_para = "vn_b_parachute_02" createVehicle position _type_spawn;} else {_para = "B_Parachute_02_F" createVehicle position _type_spawn;};
+		_para setPos (getPos _type_spawn);			
+ 	    _paras =  [_para];
+ 	    _type_spawn attachTo [_para, [0,0,-1]];
+ 	    {
+  	      if (isClass(configFile >> "CfgVehicles" >> "vn_b_wheeled_m54_03")) then {_p = "vn_b_parachute_02" createVehicle position _para;} else {_p = "B_Parachute_02_F" createVehicle position _para;};
+ 	       _paras set [count _paras, _p];
+ 	       _p attachTo [_para, [0,0,0]];
+ 	       _p setVectorUp _x;
+ 	    } count [[0.5,0.4,0.6],[-0.5,0.4,0.6],[0.5,-0.4,0.6],[-0.5,-0.4,0.6]];	
+		{ _x addCuratorEditableObjects [[_type_spawn],true] } forEach (allCurators);
+
+	    if !(isnull _logic) then 
+	    {
+		    sleep 1;
+		    deletevehicle _logic;	
+		
+	        waitUntil {position _type_spawn select 2 < 3}; 
+            detach _type_spawn;			
+		
+		    waituntil {_plane distance _pos > _dis || !alive _plane};
+	    };	
+	}; //glider check	
 
 	if !(isnull _logic) then 
 	{
 		sleep 1;
-		deletevehicle _logic;
-		
-	    waitUntil {position _type_spawn select 2 < 3}; 
-        detach _type_spawn;		
+		deletevehicle _logic;	
 		
 		waituntil {_plane distance _pos > _dis || !alive _plane};
 	};
