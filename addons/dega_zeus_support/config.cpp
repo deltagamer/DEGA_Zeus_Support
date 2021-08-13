@@ -114,7 +114,7 @@ class CfgVehicles
 					{
 						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "O_T_VTOL_02_infantry_dynamicLoadout_F";
-					};
+					};				
 					//rhs
 					class RHS_C130J 
 					{
@@ -206,19 +206,182 @@ class CfgVehicles
 					};																
 				};
 			};
-			class UGV
+			class GROUP
 			{
 				displayName = "Group Drop - Group Selection";
 				description = "";
 				class values
 				{
 					//vanilla
+					//nato
 					class BUS_InfSquad //B_Plane_CAS_01_F
 					{
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Infantry";
+						value_type = "BUS_InfSquad"; //B_Plane_CAS_01_F	
+					};	
+					class HAF_InfSquad //B_Plane_CAS_01_F
+					{
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Infantry";
+						value_type = "HAF_InfSquad"; //B_Plane_CAS_01_F					
+						default = 1;
+					};		
+					class OIA_InfSquad //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Infantry";
+						value_type = "OIA_InfSquad"; //B_Plane_CAS_01_F					
+						default = 1;
+					};		
+					class BUS_InfTeam_AT //B_Plane_CAS_01_F
+					{
 						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-						value = "BUS_InfSquad"; //B_Plane_CAS_01_F
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Infantry";
+						value_type = "BUS_InfTeam_AT"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class HAF_InfTeam_AT //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Infantry";
+						value_type = "HAF_InfTeam_AT"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class OIA_InfTeam_AT //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Infantry";
+						value_type = "OIA_InfTeam_AT"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
+					class BUS_InfTeam_AA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Infantry";
+						value_type = "BUS_InfTeam_AA"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class HAF_InfTeam_AA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Infantry";
+						value_type = "HAF_InfTeam_AA"; //B_Plane_CAS_01_F					
+						default = 1;
+					};					
+					class OIA_InfTeam_AA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Infantry";
+						value_type = "OIA_InfTeam_AA"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class BUS_SniperTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Infantry";
+						value_type = "BUS_SniperTeam"; //B_Plane_CAS_01_F					
 						default = 1;
 					};	
+					class HAF_SniperTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Infantry";
+						value_type = "HAF_SniperTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
+					class OI_SniperTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Infantry";
+						value_type = "OI_SniperTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class BUS_Support_EOD //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Support";
+						value_type = "BUS_Support_EOD"; //B_Plane_CAS_01_F					
+						default = 1;
+					};		
+					class HAF_Support_EOD //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Support";
+						value_type = "HAF_Support_EOD"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class OI_support_EOD //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Support";
+						value_type = "OI_support_EOD"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
+					class BUS_DiverTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "SpecOps";
+						value_type = "BUS_DiverTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class HAF_DiverTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "SpecOps";
+						value_type = "HAF_DiverTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class OI_diverTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "SpecOps";
+						value_type = "OI_diverTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //VN DLC	
+					class vn_b_group_men_lrrp_01 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "VN_MACV";
+						type_type = "vn_b_group_men_lrrp";
+						value_type = "vn_b_group_men_lrrp_01"; //B_Plane_CAS_01_F					
+						default = 1;
+					};					
 				};
 			};			
 		};
@@ -736,7 +899,7 @@ class CfgVehicles
 		displayName = "Airdrop Virtual Supply Box";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceGunMissile.p3d";
-		curatorInfoType = "RscDisplayAttributesModuleParadrop";
+		curatorInfoType = "RscDisplayAttributesModuleObjectdrop";
 		curatorCost = 1;
 		moduleCAStype = 0;
 		function = "DEGA_fnc_moduleSupplydrop";		
@@ -793,7 +956,7 @@ class RscDisplayAttributes
 
 class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 {
-	idd = 1890;
+	idd = 1900;
 	scriptName = "RscDisplayAttributesModuleCAS";
 	scriptPath = "CuratorDisplays";
 	onLoad = "[""onLoad"",_this,""RscDisplayAttributesModuleParadrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
@@ -864,6 +1027,134 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 						};						
 					};					
 				};						
+		        class GROUP: RscControlsGroupNoScrollbars 
+				{
+				    //onSetFocus = "[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+					idc = 12190;
+					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					class controls
+					{
+						class Title: RscText
+						{
+							style = 16;
+							idc = 1901;
+							text = "Group Drop Selection";
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							colorBackground[] = {0,0,0,0.5};
+						};
+						class Value: RscListNBox
+						{
+							columns[] = {0.0,0.1,0.25,0.0};
+							colorSelect[] = {0.95,0.95,0.95,1};
+							colorSelect2[] = {0.95,0.95,0.95,1};
+							colorSelectBackground[] = {1,1,1,0.25};
+							colorSelectBackground2[] = {1,1,1,0.25};
+							idc = 1902;
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+						};						
+					};					
+				};				
+			};
+		};	
+		class ButtonOK: RscButtonMenuOK
+		{
+			x = "28.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "27.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class ButtonCancel: RscButtonMenuCancel
+		{
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "27.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};		
+	};
+};
+class RscDisplayAttributesModuleObjectdrop: RscDisplayAttributes
+{
+	idd = 1890;
+	scriptName = "RscDisplayAttributesModuleCAS";
+	scriptPath = "CuratorDisplays";
+	onLoad = "[""onLoad"",_this,""RscDisplayAttributesModuleObjectdrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "[""onUnload"",_this,""RscDisplayAttributesModuleObjectdrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	class Controls: Controls
+	{
+		class Background: Background
+		{
+			colorBackground[] = {0,0,0,0.7};
+			idc = 30001;
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "26 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class Title: Title
+		{
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
+			idc = 30002;
+			text = "Object Selection Menu";
+			x = "6.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class Content: Content
+		{
+			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "23.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";			
+			class Controls: controls
+			{		
+				class CAS: RscControlsGroupNoScrollbars 
+				{
+					onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeOBJECT"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+					idc = 12190; //12190
+					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
+					y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					class controls
+					{
+						class Title: RscText
+						{
+							style = 16;
+							idc = 1892; //10890
+							text = "Aircraft Selection";
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							colorBackground[] = {0,0,0,0.5};
+						};
+						class Value: RscListNBox
+						{
+							columns[] = {0.0,0.1,0.25};
+							colorSelect[] = {0.95,0.95,0.95,1};
+							colorSelect2[] = {0.95,0.95,0.95,1};
+							colorSelectBackground[] = {1,1,1,0.25};
+							colorSelectBackground2[] = {1,1,1,0.25};
+							idc = 1893; //11390
+							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+						};						
+					};					
+				};						
 		        class UGV: RscControlsGroupNoScrollbars 
 				{
 				    //onSetFocus = "[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
@@ -878,7 +1169,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 						{
 							style = 16;
 							idc = 1895;
-							text = "Group Drop Selection";
+							text = "Object Drop Selection";
 							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";

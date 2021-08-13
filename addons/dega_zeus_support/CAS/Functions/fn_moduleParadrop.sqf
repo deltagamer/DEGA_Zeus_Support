@@ -37,10 +37,18 @@ if (_activated) then {
 	_planeCfg = configfile >> "cfgvehicles" >> _planeClass;
 	if !(isclass _planeCfg) exitwith {["Vehicle class '%1' not found",_planeClass] call bis_fnc_error; false};
 	
-	_type_spawnClass = _logic getvariable ["type_spawn","BUS_InfSquad"];
-	_type_spawnCfg = configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> _type_spawnClass;
-	if !(isclass _type_spawnCfg) exitwith {["Vehicle class '%1' not found",_type_spawnClass] call bis_fnc_error; false};
+	_type_spawnSide = _logic getvariable ["type_side","West"];
+	_type_spawnFaction = _logic getvariable ["type_faction","BLU_F"];
+	_type_spawnType = _logic getvariable ["type_type","Infantry"];
+	_type_spawnClass = _logic getvariable ["type_group","BUS_InfSquad"];
+	
+	//debug
+	//_myText = format ["%1\n%2\n%3\n%4", _type_spawnSide, _type_spawnFaction,_type_spawnType,_type_spawnClass];
+	//Hint _myText;
 
+	_type_spawnCfg = configfile >> "CfgGroups" >> _type_spawnSide >> _type_spawnFaction >> _type_spawnType >> _type_spawnClass;
+	if !(isclass _type_spawnCfg) exitwith {["Spawn class '%1' not found",_type_spawnClass] call bis_fnc_error; false};
+	
 	//--- Restore custom direction
 	_dirVar = _fnc_scriptname + typeof _logic;
 	_logic setdir (missionnamespace getvariable [_dirVar,direction _logic]);
@@ -263,38 +271,27 @@ if (_activated) then {
 		//_type_spawnArray = [_type_spawnPos,_dir,_type_spawnClass,_type_spawnSide] call bis_fnc_spawnVehicle;
         //_type_spawnArray = [_type_spawnPos, _type_spawnSide, _type_spawnClass] call BIS_fnc_spawnGroup;
 		_type_spawnArray = [_type_spawnPos, _type_spawnSide, (_type_spawnCfg),[],[],[],[],[],_dir] call BIS_fnc_spawnGroup;
-		//_type_spawn_group = (Units _type_spawnArray) select 0;
 		_type_spawn = (Units _type_spawnArray); 
-		
-	    private ["_para","_paras","_p"];
-		
+        _type_spawnArray setFormation "DIAMOND";
+	    private ["_para"];
 		{
 			_x setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150]; 
  		    waitUntil{((getPos _x)select 2) < 200};
     	    if (isClass(configFile >> "CfgVehicles" >> "gm_ge_airforce_do28d2")) then {_para = "gm_parachute_t10" createVehicle position _x;} else {_para = "NonSteerable_Parachute_F" createVehicle position _x;};
+			_para remoteExecCall ["disableCollisionWith", 0, _x];
+			_para disableCollisionWith _x;
 			_para setPos [(getPos _logic) select 0,(getPos _logic) select 1, 150];
-			_para remoteExecCall ["disableCollisionWith", 0, _para];
-			{ _x addCuratorEditableObjects [[_para],true] } forEach (allCurators);
     	    _x moveInAny _para;		
 			_x allowFleeing 0;
+			{ _x addCuratorEditableObjects [[_para],true] } forEach (allCurators);
 		} foreach _type_spawn;
-		
-	    if !(isnull _logic) then 
-	    {
-		    sleep 1;
-		    deletevehicle _logic;	
-		
-	        //waitUntil {position _type_spawn select 2 < 3}; 
-            // detach _type_spawn;			
-		
-		    waituntil {_plane distance _pos > _dis || !alive _plane};
-	    };	
+		//{ _x addCuratorEditableObjects [[_para],true] } forEach (allCurators);
 	}; //glider check	
 
 	if !(isnull _logic) then 
 	{
 		sleep 1;
-		deletevehicle _logic;	
+		deletevehicle _logic;
 		
 		waituntil {_plane distance _pos > _dis || !alive _plane};
 	};
