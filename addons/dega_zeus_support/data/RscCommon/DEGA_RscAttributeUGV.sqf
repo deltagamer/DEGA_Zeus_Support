@@ -25,7 +25,7 @@ switch _mode do {
 				_ctrlValue lnbsetpicture [[_lnbAdd,1],gettext (_cfg >> "picture")];
 			};
 		} foreach ((configfile >> "cfgvehicles" >> typeof _unit >> "arguments" >> "UGV" >> "values") call bis_fnc_returnchildren);
-		_ctrlValue lnbsort [2,false];
+		_ctrlValue lnbsort [1,false];
 		for "_i" from 0 to ((lnbsize _ctrlValue select 0) - 1) do {
 			if ((_ctrlValue lnbdata [_i,0]) == _selected) exitwith {_ctrlValue lnbsetcurselrow _i;};
 		};

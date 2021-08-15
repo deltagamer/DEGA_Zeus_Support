@@ -227,7 +227,7 @@ if (_activated) then {
 		};
 	};
 	
-	//--- Create UGV
+	//--- Create Box
 	_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
 	_type_spawnPos set [2,(_pos select 2) + _alt];
 	_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
@@ -241,11 +241,15 @@ if (_activated) then {
     if (isClass(configFile >> "CfgVehicles" >> "vn_b_wheeled_m54_03")) then {_para = "vn_b_parachute_02" createVehicle position _type_spawn;} else {_para = "B_Parachute_02_F" createVehicle position _type_spawn;};
 	_para setPos (getPos _type_spawn);			
     _type_spawn attachTo [_para, [0,0,-1]];
+	
+	//--- Check Box
+    _checkClass = _logic getvariable "HasArsenal";
+    if (_checkClass == true) then {_type_spawn addAction ["<t color='#0099FF'>Virtual Arsenal</t>",{["Open", true] spawn bis_fnc_arsenal},[false],6,false,true,"","(_target distance _this) < 7"];} else {nil};
 
     _flare = if (sunOrMoon <0.5) then {"F_20mm_Yellow"} else {"smokeShellYellow"}; 
 	_flarill = _flare createvehicle getPosATL _type_spawn; 
 	_flarill attachTo [_type_spawn,[0,0,-2]];
-	_type_spawn addAction ["<t color='#0099FF'>Virtual Arsenal</t>",{["Open", true] spawn bis_fnc_arsenal},[false],6,false,true,"","(_target distance _this) < 7"];	
+		
 		
 	{ _x addCuratorEditableObjects [[_type_spawn],true] } forEach (allCurators);
 

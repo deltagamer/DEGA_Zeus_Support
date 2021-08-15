@@ -371,7 +371,34 @@ class CfgVehicles
 						type_type = "SpecOps";
 						value_type = "OI_diverTeam"; //B_Plane_CAS_01_F					
 						default = 1;
+					};					
+					class CTRG_InfTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_CTRG_F";
+						type_type = "Infantry";
+						value_type = "CTRG_InfTeam"; //B_Plane_CAS_01_F					
+						default = 1;
 					};	
+					class I_E_InfTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_E_F";
+						type_type = "Infantry";
+						value_type = "I_E_InfTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class O_R_InfTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_R_F";
+						type_type = "SpecOps";
+						value_type = "O_R_InfTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
                     //VN DLC	
 					class vn_b_group_men_lrrp_01 //B_Plane_CAS_01_F
 					{
@@ -381,7 +408,499 @@ class CfgVehicles
 						type_type = "vn_b_group_men_lrrp";
 						value_type = "vn_b_group_men_lrrp_01"; //B_Plane_CAS_01_F					
 						default = 1;
-					};					
+					};
+					class vn_i_group_men_ranger_04 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "VN_ARVN";
+						type_type = "vn_i_group_men_ranger";
+						value_type = "vn_i_group_men_ranger_04"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+                    //GM DLC 
+					//80 wdl
+					class gm_ge_army_infantry_aagroup_80_ols //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_aagroup_80_ols"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_80_ols //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_atgroup_80_ols"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_80_ols //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_mggroup_80_ols"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_squad_80_ols //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_squad_80_ols"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //90 wdl
+					class gm_ge_army_infantry_aagroup_90_flk //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_aagroup_90_flk"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_90_flk //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_atgroup_90_flk"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_90_flk //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_mggroup_90_flk"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_squad_90_flk //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_squad_90_flk"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					//80 winter
+					class gm_ge_army_infantry_aagroup_parka_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_aagroup_parka_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_parka_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_atgroup_parka_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_parka_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_mggroup_parka_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_squad_parka_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_squad_parka_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //90 winter
+					class gm_ge_army_infantry_aagroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_aagroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_atgroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_mggroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_squad_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_squad_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					//80 wdl
+					class gm_dk_army_infantry_aagroup_84_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_aagroup_84_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_atgroup_84_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_atgroup_84_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_mggroup_84_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_mggroup_84_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_dk_army_infantry_squad_84_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_squad_84_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //90 wdl
+					class gm_dk_army_infantry_aagroup_90_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_aagroup_90_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_atgroup_90_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_atgroup_90_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_mggroup_90_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_mggroup_90_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_dk_army_infantry_squad_90_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_squad_90_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					//80 winter
+					class gm_dk_army_infantry_aagroup_84_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_aagroup_84_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_atgroup_84_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_atgroup_84_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_mggroup_84_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_mggroup_84_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_dk_army_infantry_squad_84_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_squad_84_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //90 winter
+					class gm_dk_army_infantry_aagroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_aagroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_atgroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_atgroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_mggroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_mggroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_dk_army_infantry_squad_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_squad_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					//EAST
+                    //80 wdl
+					class gm_gc_army_sf_infantry_specops_str //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_gc_army_sf_infantry_specops_str"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_aagroup_str //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_aagroup_str"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_str //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_atgroup_str"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_str //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_mggroup_str"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+                    //80 Winter
+					class gm_gc_army_sf_infantry_specops_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_gc_army_sf_infantry_specops_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_aagroup_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_aagroup_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_atgroup_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_mggroup_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //80 wdl
+					class gm_pl_army_infantry_aagroup_80_moro //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_aagroup_80_moro"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_pl_army_infantry_atgroup_80_moro //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_atgroup_80_moro"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_pl_army_infantry_mggroup_80_moro //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_mggroup_80_moro"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_pl_army_sf_infantry_specops_80_moro //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_sf_infantry_specops_80_moro"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+                    //80 Winter
+					class gm_pl_army_infantry_aagroup_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_aagroup_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_pl_army_infantry_atgroup_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_atgroup_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_pl_army_infantry_mggroup_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_mggroup_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_pl_army_sf_infantry_specops_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_sf_infantry_specops_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //csla
+					class US85_abDtmt //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "US85";
+						type_type = "US85_AirbornUnits";
+						value_type = "US85_abDtmt"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class US85_abSqd //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "US85";
+						type_type = "US85_AirbornUnits";
+						value_type = "US85_abSqd"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class CSLA_abDtmt //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "CSLA";
+						type_type = "CSLA_AirbornUnits";
+						value_type = "CSLA_abDtmt"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class CSLA_abSqd //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "CSLA";
+						type_type = "CSLA_AirbornUnits";
+						value_type = "CSLA_abSqd"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
 				};
 			};			
 		};
@@ -896,7 +1415,7 @@ class CfgVehicles
 		scopeCurator = 2;
 		simulation = "house";
 		category = "DEGA_Zeus_Airdrop";
-		displayName = "Airdrop Virtual Supply Box";
+		displayName = "Airdrop Ammobox";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceGunMissile.p3d";
 		curatorInfoType = "RscDisplayAttributesModuleObjectdrop";
@@ -1194,6 +1713,27 @@ class RscDisplayAttributesModuleObjectdrop: RscDisplayAttributes
 				};				
 			};
 		};	
+		class Yes_No_Title: RscText
+		{
+			idc = 1898;
+			text = "Ammobox Has Arsenal?";
+			x = "12 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "25.7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "9 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
+		};						
+		class Yes_No: RscCheckbox
+		{
+			idc = 1899;
+			//onCheckedChanged = "";
+			//onLoad = "myDisplay_CHECKED = (_this select 0)";
+			checked = 0;
+			x = "20 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "25.7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};			
 		class ButtonOK: RscButtonMenuOK
 		{
 			x = "28.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
@@ -1337,7 +1877,7 @@ class RscDisplayAttributesModuleVehicledrop: RscDisplayAttributes
 			idc = 1899;
 			//onCheckedChanged = "";
 			//onLoad = "myDisplay_CHECKED = (_this select 0)";
-			checked = 1;
+			checked = 0;
 			x = "20 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "25.7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";

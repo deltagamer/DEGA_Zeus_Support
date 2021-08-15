@@ -285,7 +285,6 @@ if (_activated) then {
 			_x allowFleeing 0;
 			{ _x addCuratorEditableObjects [[_para],true] } forEach (allCurators);
 		} foreach _type_spawn;
-		//{ _x addCuratorEditableObjects [[_para],true] } forEach (allCurators);
 	}; //glider check	
 
 	if !(isnull _logic) then 
