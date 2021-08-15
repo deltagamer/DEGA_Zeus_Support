@@ -38,7 +38,7 @@ class CfgFunctions
 		project = "arma3";		
 		class Airdrop
 		{
-			file = "dega_zeus_support\CAS\Functions";
+			file = "dega_zeus_support\data\Functions";
 			class moduleParadrop;
 			class moduleDroppod;
 			class moduleSupplydrop;
@@ -400,24 +400,7 @@ class CfgVehicles
 						default = 1;
 					};						
                     //VN DLC	
-					class vn_b_group_men_lrrp_01 //B_Plane_CAS_01_F
-					{
-						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-			            side = "West";
-						faction = "VN_MACV";
-						type_type = "vn_b_group_men_lrrp";
-						value_type = "vn_b_group_men_lrrp_01"; //B_Plane_CAS_01_F					
-						default = 1;
-					};
-					class vn_i_group_men_ranger_04 //B_Plane_CAS_01_F
-					{
-						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
-			            side = "Indep";
-						faction = "VN_ARVN";
-						type_type = "vn_i_group_men_ranger";
-						value_type = "vn_i_group_men_ranger_04"; //B_Plane_CAS_01_F					
-						default = 1;
-					};
+					
                     //GM DLC 
 					//80 wdl
 					class gm_ge_army_infantry_aagroup_80_ols //B_Plane_CAS_01_F
@@ -900,6 +883,79 @@ class CfgVehicles
 						type_type = "CSLA_AirbornUnits";
 						value_type = "CSLA_abSqd"; //B_Plane_CAS_01_F					
 						default = 1;
+					};
+                    //ifa3
+					class LIB_UK_AB_AT_squad //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "LIB_UK_AB";
+						type_type = "Infantry";
+						value_type = "LIB_UK_AB_AT_squad"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class LIB_UK_AB_infantry_squad //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "LIB_UK_AB";
+						type_type = "Infantry";
+						value_type = "LIB_UK_AB_infantry_squad"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class LIB_UK_AB_machine_gun_team //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "LIB_UK_AB";
+						type_type = "Infantry";
+						value_type = "LIB_UK_AB_machine_gun_team"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class LIB_UK_AB_AT_squad_w //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "LIB_UK_AB_w";
+						type_type = "Infantry";
+						value_type = "LIB_UK_AB_AT_squad_w"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class LIB_UK_AB_infantry_squad_w //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "LIB_UK_AB_w";
+						type_type = "Infantry";
+						value_type = "LIB_UK_AB_infantry_squad_w"; //B_Plane_CAS_01_F					
+						default = 1;
+					};		
+					class LIB_UK_AB_machine_gun_team_w //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "LIB_UK_AB_w";
+						type_type = "Infantry";
+						value_type = "LIB_UK_AB_machine_gun_team_w"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class LIB_US_101AB_HQ_squad //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "LIB_US_101AB";
+						type_type = "Infantry";
+						value_type = "LIB_US_101AB_HQ_squad"; //B_Plane_CAS_01_F					
+						default = 1;
+					};		
+					class LIB_US_101AB_Infantry_squad //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "LIB_US_101AB";
+						type_type = "Infantry";
+						value_type = "LIB_US_101AB_Infantry_squad"; //B_Plane_CAS_01_F					
+						default = 1;
 					};						
 				};
 			};			
@@ -940,14 +996,272 @@ class CfgVehicles
 						value = "TIOW_Drop_Pod_BT"; //B_Plane_CAS_01_F
 						default = 1;
 					};
+					class TIOW_Drop_Pod_BA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_BA"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_BR //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_BR"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_DA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_DA"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_DA_HH //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_DA_HH"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_IF //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_IF"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_IH //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_IH"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_RG //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_RG"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_SAL //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_SAL"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class TIOW_Drop_Pod_SW //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_SW"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class TIOW_Drop_Pod_UM //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_UM"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class TIOW_Drop_Pod_WS //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_WS"; //B_Plane_CAS_01_F
+						default = 1;
+					};						
 					//opfor
+					class TIOW_Drop_Pod_AL
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_AL";
+					};
+					
+					class TIOW_Drop_Pod_BL
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_BL";
+					};
+					class TIOW_Drop_Pod_DG
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_DG";
+					};
 					class TIOW_Drop_Pod_EC
 					{
 						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
 						value = "TIOW_Drop_Pod_EC";
-					};						
+					};
+					class TIOW_Drop_Pod_IW
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_IW";
+					};
+					class TIOW_Drop_Pod_NL
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_NL";
+					};
+					class TIOW_Drop_Pod_TS
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_TS";
+					};
+					class TIOW_Drop_Pod_WB
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_WB";
+					};
+					class TIOW_Drop_Pod_WE
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_WE";
+					};					
 				};
 			};
+			class GROUP
+			{
+				displayName = "Group Drop - Group Selection";
+				description = "";
+				class values
+				{
+					//vanilla
+					//nato
+					class TIOW_Group_SM_BA_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_BA_Squads";
+						value_type = "TIOW_Group_SM_BA_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_BR_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_BR_Squads";
+						value_type = "TIOW_Group_SM_BR_Tact_1"; //B_Plane_CAS_01_F	
+					};
+					class TIOW_Group_SM_BT_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_BT_Squads";
+						value_type = "TIOW_Group_SM_BT_Tact_1"; //B_Plane_CAS_01_F	
+					};
+					class TIOW_Group_SM_DA_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_DA_Squads";
+						value_type = "TIOW_Group_SM_DA_Tact_1"; //B_Plane_CAS_01_F	
+					};
+					class TIOW_Group_SM_IF_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_IF_Squads";
+						value_type = "TIOW_Group_SM_IF_Tact_1"; //B_Plane_CAS_01_F	
+					};
+					class TIOW_Group_SM_IH_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_IH_Squads";
+						value_type = "TIOW_Group_SM_IH_Tact_1"; //B_Plane_CAS_01_F	
+					};
+					class TIOW_Group_SM_RG_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_RG_Squads";
+						value_type = "TIOW_Group_SM_RG_Tact_1"; //B_Plane_CAS_01_F	
+					};
+					class TIOW_Group_SM_SL_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_SL_Squads";
+						value_type = "TIOW_Group_SM_SL_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_SW_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_SW_Squads";
+						value_type = "TIOW_Group_SM_SW_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_UM_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_UM_Squads";
+						value_type = "TIOW_Group_SM_UM_Tact_1"; //B_Plane_CAS_01_F	
+					};
+					class TIOW_Group_SM_WS_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "TIOW_SpaceMarines";
+						type_type = "TIOW_SM_WS_Squads";
+						value_type = "TIOW_Group_SM_WS_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					//opfor
+					class TIOW_Group_SM_AL_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_AL_Squads";
+						value_type = "TIOW_Group_SM_AL_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_BL_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_BL_Squads";
+						value_type = "TIOW_Group_SM_BL_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_DG_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_DG_Squads";
+						value_type = "TIOW_Group_SM_DG_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_EC_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_EC_Squads";
+						value_type = "TIOW_Group_SM_EC_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_IW_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_IW_Squads";
+						value_type = "TIOW_Group_SM_IW_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_NL_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_NL_Squads";
+						value_type = "TIOW_Group_SM_NL_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_TS_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_TS_Squads";
+						value_type = "TIOW_Group_SM_TS_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_WB_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_WB_Squads";
+						value_type = "TIOW_Group_SM_WB_Tact_1"; //B_Plane_CAS_01_F	
+					};	
+					class TIOW_Group_SM_WE_Tact_1 //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "TIOW_ChaosSpaceMarines";
+						type_type = "TIOW_CSM_WE_Squads";
+						value_type = "TIOW_Group_SM_WE_Tact_1"; //B_Plane_CAS_01_F	
+					};						
+                };
+            };				
 		};		
 		class ModuleDescription: ModuleDescription
 		{
@@ -1056,6 +1370,168 @@ class CfgVehicles
 						value = "Box_IND_AmmoVeh_F"; 
 						default = 1;						
 					};	
+					class Box_EAF_AmmoVeh_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Box_EAF_AmmoVeh_F"; 
+						default = 1;						
+					};	
+					class B_supplyCrate_F //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_supplyCrate_F"; //B_Plane_CAS_01_F
+						default = 1;
+					};						
+					class I_supplyCrate_F
+					{
+						//name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "I_supplyCrate_F";
+						default = 1;						
+					};
+					class O_supplyCrate_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "O_supplyCrate_F"; 
+						default = 1;						
+					};
+					class I_EAF_supplyCrate_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "I_EAF_supplyCrate_F"; 
+						default = 1;						
+					};		
+					class C_supplyCrate_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "C_supplyCrate_F"; 
+						default = 1;						
+					};		
+					class C_IDAP_supplyCrate_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "C_IDAP_supplyCrate_F"; 
+						default = 1;						
+					};
+					class IG_supplyCrate_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "IG_supplyCrate_F"; 
+						default = 1;						
+					};	
+					class C_T_supplyCrate_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "C_T_supplyCrate_F"; 
+						default = 1;						
+					};
+					class CargoNet_01_barrels_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CargoNet_01_barrels_F"; 
+						default = 1;						
+					};	
+					class B_CargoNet_01_ammo_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_CargoNet_01_ammo_F"; 
+						default = 1;						
+					};	
+					class I_CargoNet_01_ammo_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "I_CargoNet_01_ammo_F"; 
+						default = 1;						
+					};	
+					class O_CargoNet_01_ammo_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "O_CargoNet_01_ammo_F"; 
+						default = 1;						
+					};	
+					class I_E_CargoNet_01_ammo_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "I_E_CargoNet_01_ammo_F"; 
+						default = 1;						
+					};	
+					class C_IDAP_CargoNet_01_supplies_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "C_IDAP_CargoNet_01_supplies_F"; 
+						default = 1;						
+					};
+					class CargoNet_01_box_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CargoNet_01_box_F"; 
+						default = 1;						
+					};	
+					class B_Slingload_01_Ammo_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_Slingload_01_Ammo_F"; 
+						default = 1;						
+					};	
+					class B_Slingload_01_Fuel_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_Slingload_01_Fuel_F"; 
+						default = 1;						
+					};
+					class B_Slingload_01_Medevac_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_Slingload_01_Medevac_F"; 
+						default = 1;						
+					};	
+					class B_Slingload_01_Repair_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_Slingload_01_Repair_F"; 
+						default = 1;						
+					};	
+					class B_Slingload_01_Cargo_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_Slingload_01_Cargo_F"; 
+						default = 1;						
+					};
+					class Land_RepairDepot_01_green_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Land_RepairDepot_01_green_F"; 
+						default = 1;						
+					};	
+					class Land_RepairDepot_01_tan_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Land_RepairDepot_01_tan_F"; 
+						default = 1;						
+					};	
+					class Land_Pod_Heli_Transport_04_ammo_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Land_Pod_Heli_Transport_04_ammo_F"; 
+						default = 1;						
+					};	
+					class Land_Pod_Heli_Transport_04_box_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Land_Pod_Heli_Transport_04_box_F"; 
+						default = 1;						
+					};	
+					class Land_Pod_Heli_Transport_04_fuel_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Land_Pod_Heli_Transport_04_fuel_F"; 
+						default = 1;						
+					};	
+					class Land_Pod_Heli_Transport_04_repair_F 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "Land_Pod_Heli_Transport_04_repair_F"; 
+						default = 1;						
+					};						
 				};
 			};			
 		};
@@ -1214,6 +1690,16 @@ class CfgVehicles
 						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "B_LSV_01_AT_F"; //B_Plane_CAS_01_F
 					};
+					class B_Boat_Transport_01_F //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_Boat_Transport_01_F"; //B_Plane_CAS_01_F
+					};
+					class B_SDV_01_F //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_SDV_01_F"; //B_Plane_CAS_01_F
+					};
 					class O_T_LSV_02_unarmed_F //B_Plane_CAS_01_F
 					{
 						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
@@ -1362,7 +1848,36 @@ class CfgVehicles
 						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
 						value = "LIB_UK_Willys_MB_Ambulance"; 						
 					};	
-						
+					class US85_M998SFGT 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "US85_M998SFGT"; 						
+					};
+					class US85_M1043_M60 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "US85_M1043_M60"; 						
+					};
+					class US85_M1043_ua 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "US85_M1043_ua"; 						
+					};
+					class CSLA_AZU_para 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CSLA_AZU_para"; 						
+					};	
+					class CSLA_AZU_R2 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CSLA_AZU_R2"; 						
+					};
+					class CSLA_lodka 
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "CSLA_lodka"; 						
+					};						
 				};
 			};			
 		};
@@ -1381,7 +1896,7 @@ class CfgVehicles
 		scopeCurator = 2;
 		simulation = "house";
 		category = "DEGA_Zeus_Airdrop";
-		displayName = "Paradrop Unit Reinforcements";
+		displayName = "Airborne Unit Reinforcements";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceGunMissile.p3d";
 		curatorInfoType = "RscDisplayAttributesModuleParadrop";
@@ -1401,10 +1916,10 @@ class CfgVehicles
 		displayName = "Drop Pod Reinforcements";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceMissile.p3d";
-		curatorInfoType = "RscDisplayAttributesModuleCAS";
+		curatorInfoType = "RscDisplayAttributesModuleParadrop";
 		curatorCost = 1;
 		moduleCAStype = 0;
-		function = "RscDisplayAttributesModuleParadrop";		
+		function = "DEGA_fnc_moduleDroppod";		
 		delete Arguments;
 	};	
 	class ModuleSupplydrop_F: Base_ModuleSupplydrop_F
@@ -1532,7 +2047,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 						};
 						class Value: RscListNBox
 						{
-							columns[] = {0.0,0.1,0.25};
+							columns[] = {0.0,0.1,0.25,0.6};
 							colorSelect[] = {0.95,0.95,0.95,1};
 							colorSelect2[] = {0.95,0.95,0.95,1};
 							colorSelectBackground[] = {1,1,1,0.25};
@@ -1569,7 +2084,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 						};
 						class Value: RscListNBox
 						{
-							columns[] = {0.0,0.1,0.25,0.0};
+							columns[] = {0.0,0.1,0.25,0.6};
 							colorSelect[] = {0.95,0.95,0.95,1};
 							colorSelect2[] = {0.95,0.95,0.95,1};
 							colorSelectBackground[] = {1,1,1,0.25};
@@ -1660,7 +2175,7 @@ class RscDisplayAttributesModuleObjectdrop: RscDisplayAttributes
 						};
 						class Value: RscListNBox
 						{
-							columns[] = {0.0,0.1,0.25};
+							columns[] = {0.0,0.1,0.25,0.6};
 							colorSelect[] = {0.95,0.95,0.95,1};
 							colorSelect2[] = {0.95,0.95,0.95,1};
 							colorSelectBackground[] = {1,1,1,0.25};
@@ -1809,7 +2324,7 @@ class RscDisplayAttributesModuleVehicledrop: RscDisplayAttributes
 						};
 						class Value: RscListNBox
 						{
-							columns[] = {0.0,0.1,0.25};
+							columns[] = {0.0,0.1,0.25,0.6};
 							colorSelect[] = {0.95,0.95,0.95,1};
 							colorSelect2[] = {0.95,0.95,0.95,1};
 							colorSelectBackground[] = {1,1,1,0.25};

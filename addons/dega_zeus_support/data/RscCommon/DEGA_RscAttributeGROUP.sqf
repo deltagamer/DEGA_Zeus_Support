@@ -21,8 +21,9 @@ switch _mode do {
 			_type_type = gettext (_x >> "type_type");
 			_class_type = gettext (_x >> "value_type");
 			_cfg = configfile >> "CfgGroups" >> _side_type >> _faction_type >> _type_type >> _class_type;
+			_cfg1 = configfile >> "CfgGroups" >> _side_type >> _faction_type;
 			if ([_playerSide,(getnumber (_cfg >> "side")) call bis_fnc_sidetype] call bis_fnc_arefriendly) then {
-				_lnbAdd = _ctrlValue lnbaddrow [gettext (_cfg >> "Side"),"",gettext (_cfg >> "Name")];
+				_lnbAdd = _ctrlValue lnbaddrow ["","",gettext (_cfg >> "Name"),gettext (_cfg1 >> "Name")];
 				
 				_ctrlValue lnbsetdata [[_lnbAdd,0],_side_type];
 				_ctrlValue lnbsetdata [[_lnbAdd,1],_faction_type];
@@ -56,8 +57,8 @@ switch _mode do {
 		_unit setvariable ["type_group",_class_type,true];		
 		
 	    //debug
-	    _myText = format ["%1\n%2\n%3\n%4", _side_type,_faction_type,_type_type,_class_type];
-	    Hint _myText;
+	    //_myText = format ["%1\n%2\n%3\n%4", _side_type,_faction_type,_type_type,_class_type];
+	    //Hint _myText;
 
 		_unit setvariable ["BIS_fnc_curatorAttributes",[],true];
 		missionnamespace setvariable ["RscATtributeGROUP_selected",_class_type];
