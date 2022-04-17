@@ -17,7 +17,7 @@ class CfgPatches
 		url = "";
 		requiredAddons[] = {"A3_Data_F_Curator"};
 		requiredVersion = 0.1;
-		units[] = {"ModuleParadrop_F","ModuleDroppod_F","ModuleSupplydrop_F","ModuleVehicledrop_F","ModuleUGVdrop_F"};		
+		units[] = {"ModuleParadrop_F","ModuleFastrope_F","ModuleDroppod_F","ModuleSupplydrop_F","ModuleVehicledrop_F","ModuleUGVdrop_F"};		
 		weapons[] = {};
 	};
 };
@@ -44,6 +44,7 @@ class CfgFunctions
 			class moduleSupplydrop;
 			class moduleVehicledrop;
 			class moduleUGVdrop;
+			class moduleFastrope;
 		};
 	};
 };
@@ -967,6 +968,756 @@ class CfgVehicles
 			direction = 1;
 		};
 	};
+	/*
+	class Base_ModuleFastrope_F: Module_F
+	{
+		author = "$STR_A3_Bohemia_Interactive";
+		_generalMacro = "Base_ModuleFastrope_F";
+		scope = 10;
+		scopeCurator = 0;
+		isGlobal = 1;
+		isTriggerActivated = 1;
+		category = "DEGA_Zeus_Airdrop";
+		displayName = "DEGA Airdrops (Module - 0)";
+		icon = "\a3\Modules_F_Curator\Data\iconCAS_ca.paa";
+		portrait = "\a3\Modules_F_Curator\Data\portraitCAS_ca.paa";
+		function = "DEGA_fnc_moduleFastrope";
+		curatorCost = 5;
+		class Arguments
+		{
+			class Vehicle
+			{
+				displayName = "Vehicle Drop - Aircraft Selection";
+				description = "";
+				class values
+				{
+					//vanilla
+					class B_Heli_Transport_01_camo_F //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_Heli_Transport_01_camo_F"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class B_Heli_Transport_03_F //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "B_Heli_Transport_03_F"; //B_Plane_CAS_01_F
+						default = 1;
+					};					
+					class RHS_CH_47F //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "RHS_CH_47F"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class RHS_UH60M //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "RHS_UH60M"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class RHS_UH1Y //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "RHS_UH1Y"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class rhsgref_cdf_b_reg_Mi8amt //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "rhsgref_cdf_b_reg_Mi8amt"; //B_Plane_CAS_01_F
+						default = 1;
+					};						
+				};
+			};
+			class GROUP
+			{
+				displayName = "Group Drop - Group Selection";
+				description = "";
+				class values
+				{
+					//vanilla
+					//nato
+					class BUS_InfSquad //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Infantry";
+						value_type = "BUS_InfSquad"; //B_Plane_CAS_01_F	
+					};	
+					class HAF_InfSquad //B_Plane_CAS_01_F
+					{
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Infantry";
+						value_type = "HAF_InfSquad"; //B_Plane_CAS_01_F					
+						default = 1;
+					};		
+					class OIA_InfSquad //B_Plane_CAS_01_F
+					{
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Infantry";
+						value_type = "OIA_InfSquad"; //B_Plane_CAS_01_F					
+						default = 1;
+					};		
+					class BUS_InfTeam_AT //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Infantry";
+						value_type = "BUS_InfTeam_AT"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class HAF_InfTeam_AT //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Infantry";
+						value_type = "HAF_InfTeam_AT"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class OIA_InfTeam_AT //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Infantry";
+						value_type = "OIA_InfTeam_AT"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
+					class BUS_InfTeam_AA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Infantry";
+						value_type = "BUS_InfTeam_AA"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class HAF_InfTeam_AA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Infantry";
+						value_type = "HAF_InfTeam_AA"; //B_Plane_CAS_01_F					
+						default = 1;
+					};					
+					class OIA_InfTeam_AA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Infantry";
+						value_type = "OIA_InfTeam_AA"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class BUS_SniperTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Infantry";
+						value_type = "BUS_SniperTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class HAF_SniperTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Infantry";
+						value_type = "HAF_SniperTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
+					class OI_SniperTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Infantry";
+						value_type = "OI_SniperTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class BUS_Support_EOD //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "Support";
+						value_type = "BUS_Support_EOD"; //B_Plane_CAS_01_F					
+						default = 1;
+					};		
+					class HAF_Support_EOD //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "Support";
+						value_type = "HAF_Support_EOD"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class OI_support_EOD //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "Support";
+						value_type = "OI_support_EOD"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
+					class BUS_DiverTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_F";
+						type_type = "SpecOps";
+						value_type = "BUS_DiverTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class HAF_DiverTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_F";
+						type_type = "SpecOps";
+						value_type = "HAF_DiverTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class OI_diverTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_F";
+						type_type = "SpecOps";
+						value_type = "OI_diverTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};					
+					class CTRG_InfTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "BLU_CTRG_F";
+						type_type = "Infantry";
+						value_type = "CTRG_InfTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class I_E_InfTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "Indep";
+						faction = "IND_E_F";
+						type_type = "Infantry";
+						value_type = "I_E_InfTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class O_R_InfTeam //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "OPF_R_F";
+						type_type = "SpecOps";
+						value_type = "O_R_InfTeam"; //B_Plane_CAS_01_F					
+						default = 1;
+					};						
+                    //VN DLC	
+					
+                    //GM DLC 
+					//80 wdl
+					class gm_ge_army_infantry_aagroup_80_ols //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_aagroup_80_ols"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_80_ols //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_atgroup_80_ols"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_80_ols //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_mggroup_80_ols"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_squad_80_ols //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_squad_80_ols"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //90 wdl
+					class gm_ge_army_infantry_aagroup_90_flk //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_aagroup_90_flk"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_90_flk //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_atgroup_90_flk"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_90_flk //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_mggroup_90_flk"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_squad_90_flk //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_squad_90_flk"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					//80 winter
+					class gm_ge_army_infantry_aagroup_parka_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_aagroup_parka_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_parka_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_atgroup_parka_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_parka_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_mggroup_parka_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_squad_parka_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_squad_parka_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //90 winter
+					class gm_ge_army_infantry_aagroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_aagroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_atgroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_mggroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_squad_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_ge_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_ge_army_infantry_squad_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					//80 wdl
+					class gm_dk_army_infantry_aagroup_84_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_aagroup_84_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_atgroup_84_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_atgroup_84_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_mggroup_84_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_mggroup_84_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_dk_army_infantry_squad_84_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_squad_84_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //90 wdl
+					class gm_dk_army_infantry_aagroup_90_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_aagroup_90_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_atgroup_90_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_atgroup_90_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_mggroup_90_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_mggroup_90_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_dk_army_infantry_squad_90_m84 //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_squad_90_m84"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					//80 winter
+					class gm_dk_army_infantry_aagroup_84_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_aagroup_84_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_atgroup_84_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_atgroup_84_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_mggroup_84_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_mggroup_84_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_dk_army_infantry_squad_84_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_dk_army_infantry_squad_84_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //90 winter
+					class gm_dk_army_infantry_aagroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_aagroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_atgroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_atgroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_dk_army_infantry_mggroup_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_mggroup_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_dk_army_infantry_squad_90_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "gm_dk_army_win";
+						type_type = "gm_infantry_90";
+						value_type = "gm_dk_army_infantry_squad_90_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					//EAST
+                    //80 wdl
+					class gm_gc_army_sf_infantry_specops_str //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_gc_army_sf_infantry_specops_str"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_aagroup_str //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_aagroup_str"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_str //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_atgroup_str"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_str //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_mggroup_str"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+                    //80 Winter
+					class gm_gc_army_sf_infantry_specops_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_gc_army_sf_infantry_specops_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_ge_army_infantry_aagroup_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_aagroup_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_atgroup_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_atgroup_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_ge_army_infantry_mggroup_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_gc_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_ge_army_infantry_mggroup_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //80 wdl
+					class gm_pl_army_infantry_aagroup_80_moro //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_aagroup_80_moro"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_pl_army_infantry_atgroup_80_moro //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_atgroup_80_moro"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_pl_army_infantry_mggroup_80_moro //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_mggroup_80_moro"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_pl_army_sf_infantry_specops_80_moro //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_sf_infantry_specops_80_moro"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+                    //80 Winter
+					class gm_pl_army_infantry_aagroup_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_aagroup_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};
+					class gm_pl_army_infantry_atgroup_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_atgroup_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_pl_army_infantry_mggroup_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_infantry_mggroup_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class gm_pl_army_sf_infantry_specops_80_win //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "gm_pl_army_win";
+						type_type = "gm_infantry_80";
+						value_type = "gm_pl_army_sf_infantry_specops_80_win"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+                    //csla
+					class US85_abDtmt //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "US85";
+						type_type = "US85_AirbornUnits";
+						value_type = "US85_abDtmt"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class US85_abSqd //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "West";
+						faction = "US85";
+						type_type = "US85_AirbornUnits";
+						value_type = "US85_abSqd"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class CSLA_abDtmt //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "CSLA";
+						type_type = "CSLA_AirbornUnits";
+						value_type = "CSLA_abDtmt"; //B_Plane_CAS_01_F					
+						default = 1;
+					};	
+					class CSLA_abSqd //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+			            side = "East";
+						faction = "CSLA";
+						type_type = "CSLA_AirbornUnits";
+						value_type = "CSLA_abSqd"; //B_Plane_CAS_01_F					
+						default = 1;
+					};					
+				};
+			};			
+		};
+		class ModuleDescription: ModuleDescription
+		{
+			description = "$STR_A3_CfgVehicles_ModuleCAS_F_ModuleDescription";
+			position = 1;
+			direction = 1;
+		};
+	};	*/
 	class Base_ModuleDroppod_F: Module_F
 	{
 		author = "$STR_A3_Bohemia_Interactive";
@@ -990,6 +1741,12 @@ class CfgVehicles
 				class values
 				{
 					//blufor
+					class JMSFALL_B_Droppod_imc //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "JMSFALL_B_Droppod_imc"; //B_Plane_CAS_01_F
+						default = 1;
+					};					
 					class TIOW_Drop_Pod_BT //B_Plane_CAS_01_F
 					{
 						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
@@ -1063,6 +1820,11 @@ class CfgVehicles
 						default = 1;
 					};						
 					//opfor
+					class JMSFALL_O_Droppod_mil
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "JMSFALL_O_Droppod_mil";
+					};					
 					class TIOW_Drop_Pod_AL
 					{
 						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
@@ -1119,6 +1881,13 @@ class CfgVehicles
 				{
 					//vanilla
 					//nato
+					class JMSFALL_group_imc_inf_marines_fireteam //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "JMSFALL_imc_fact";
+						type_type = "JMSFALL_group_imc_inf_marines";
+						value_type = "JMSFALL_group_imc_inf_marines_fireteam"; //B_Plane_CAS_01_F	
+					};						
 					class TIOW_Group_SM_BA_Tact_1 //B_Plane_CAS_01_F
 					{
 			            side = "West";
@@ -1197,6 +1966,13 @@ class CfgVehicles
 						value_type = "TIOW_Group_SM_WS_Tact_1"; //B_Plane_CAS_01_F	
 					};	
 					//opfor
+					class JMSFALL_group_mil_inf_grunts_fireteam //B_Plane_CAS_01_F
+					{
+			            side = "West";
+						faction = "JMSFALL_militia_fact";
+						type_type = "JMSFALL_group_mil_inf_grunts";
+						value_type = "JMSFALL_group_mil_inf_grunts_fireteam"; //B_Plane_CAS_01_F	
+					};						
 					class TIOW_Group_SM_AL_Tact_1 //B_Plane_CAS_01_F
 					{
 			            side = "East";
@@ -1905,6 +2681,24 @@ class CfgVehicles
 		function = "DEGA_fnc_moduleParadrop";		
 		delete Arguments;
 	};	
+	/*
+	class ModuleFastrope_F: Base_ModuleFastrope_F
+	{
+		author = "Deltagamer";
+		_generalMacro = "ModuleFastrope_F";
+		scope = 1;
+		scopeCurator = 2;
+		simulation = "house";
+		category = "DEGA_Zeus_Airdrop";
+		displayName = "Fastrope Unit Reinforcements";
+		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
+		model = "\a3\Modules_F_Curator\CAS\surfaceMissile.p3d";
+		curatorInfoType = "RscDisplayAttributesModuleParadrop";
+		curatorCost = 1;
+		moduleCAStype = 0;
+		function = "DEGA_fnc_moduleFastrope";		
+		delete Arguments;
+	};		*/
 	class ModuleDroppod_F: Base_ModuleDroppod_F
 	{
 		author = "Deltagamer";
@@ -1996,7 +2790,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 	onLoad = "[""onLoad"",_this,""RscDisplayAttributesModuleParadrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
 	onUnload = "[""onUnload"",_this,""RscDisplayAttributesModuleParadrop"",'CuratorDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
 	class Controls: Controls
-	{
+	{		
 		class Background: Background
 		{
 			colorBackground[] = {0,0,0,0.7};
@@ -2006,7 +2800,7 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "26 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
-		class Title: Title
+		class Title1: Title
 		{
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
 			idc = 30002;
@@ -2015,91 +2809,81 @@ class RscDisplayAttributesModuleParadrop: RscDisplayAttributes
 			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-		};
-		class Content: Content
+		};	
+		class CAS: RscControlsGroupNoScrollbars 
 		{
+			onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+			idc = 12190; //12190
 			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 			y = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-			w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "23.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";			
-			class Controls: controls
-			{		
-				class CAS: RscControlsGroupNoScrollbars 
+			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			class controls
+			{
+				class Title: RscText
 				{
-					onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeGROUP"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
-					idc = 12190; //12190
-					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-					y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+					style = 16;
+					idc = 1892; //10890
+					text = "Aircraft Selection";
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-					class controls
-					{
-						class Title: RscText
-						{
-							style = 16;
-							idc = 1892; //10890
-							text = "Aircraft Selection";
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							colorBackground[] = {0,0,0,0.5};
-						};
-						class Value: RscListNBox
-						{
-							columns[] = {0.0,0.1,0.25,0.6};
-							colorSelect[] = {0.95,0.95,0.95,1};
-							colorSelect2[] = {0.95,0.95,0.95,1};
-							colorSelectBackground[] = {1,1,1,0.25};
-							colorSelectBackground2[] = {1,1,1,0.25};
-							idc = 1893; //11390
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-						};						
-					};					
+					h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					colorBackground[] = {0,0,0,0.5};
+				};
+				class Value: RscListNBox
+				{
+					columns[] = {0.0,0.1,0.25,0.6};
+					colorSelect[] = {0.95,0.95,0.95,1};
+					colorSelect2[] = {0.95,0.95,0.95,1};
+					colorSelectBackground[] = {1,1,1,0.25};
+					colorSelectBackground2[] = {1,1,1,0.25};
+					idc = 1893; //11390
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 				};						
-		        class GROUP: RscControlsGroupNoScrollbars 
+			};					
+		};
+		class GROUP: RscControlsGroupNoScrollbars 
+	    {
+		    onSetFocus = "[_this,""DEGA_RscAttributeGROUP"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+			idc = 12190;
+			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			class controls
+			{
+				class Title: RscText
 				{
-				    //onSetFocus = "[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
-					idc = 12190;
-					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+					style = 16;
+					idc = 1901;
+					text = "Group Drop Selection";
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-					class controls
-					{
-						class Title: RscText
-						{
-							style = 16;
-							idc = 1901;
-							text = "Group Drop Selection";
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							colorBackground[] = {0,0,0,0.5};
-						};
-						class Value: RscListNBox
-						{
-							columns[] = {0.0,0.1,0.25,0.6};
-							colorSelect[] = {0.95,0.95,0.95,1};
-							colorSelect2[] = {0.95,0.95,0.95,1};
-							colorSelectBackground[] = {1,1,1,0.25};
-							colorSelectBackground2[] = {1,1,1,0.25};
-							idc = 1902;
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-						};						
-					};					
-				};				
-			};
-		};	
+					h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					colorBackground[] = {0,0,0,0.5};
+			    };
+				class Value: RscListNBox
+				{
+					columns[] = {0.0,0.1,0.25,0.6};
+					colorSelect[] = {0.95,0.95,0.95,1};
+					colorSelect2[] = {0.95,0.95,0.95,1};
+					colorSelectBackground[] = {1,1,1,0.25};
+					colorSelectBackground2[] = {1,1,1,0.25};
+					idc = 1902;
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+				};						
+			};			
+		};
 		class ButtonOK: RscButtonMenuOK
 		{
 			x = "28.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
@@ -2144,94 +2928,84 @@ class RscDisplayAttributesModuleObjectdrop: RscDisplayAttributes
 			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
-		class Content: Content
+		class CAS: RscControlsGroupNoScrollbars 
 		{
+			onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+			idc = 12190; //12190
 			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 			y = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-			w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "23.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";			
-			class Controls: controls
-			{		
-				class CAS: RscControlsGroupNoScrollbars 
+			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			class controls
+			{
+				class Title: RscText
 				{
-					onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeOBJECT"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
-					idc = 12190; //12190
-					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-					y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+					style = 16;
+					idc = 1892; //10890
+					text = "Aircraft Selection";
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-					class controls
-					{
-						class Title: RscText
-						{
-							style = 16;
-							idc = 1892; //10890
-							text = "Aircraft Selection";
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							colorBackground[] = {0,0,0,0.5};
-						};
-						class Value: RscListNBox
-						{
-							columns[] = {0.0,0.1,0.25,0.6};
-							colorSelect[] = {0.95,0.95,0.95,1};
-							colorSelect2[] = {0.95,0.95,0.95,1};
-							colorSelectBackground[] = {1,1,1,0.25};
-							colorSelectBackground2[] = {1,1,1,0.25};
-							idc = 1893; //11390
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-						};						
-					};					
+					h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					colorBackground[] = {0,0,0,0.5};
+				};
+				class Value: RscListNBox
+				{
+					columns[] = {0.0,0.1,0.25,0.6};
+					colorSelect[] = {0.95,0.95,0.95,1};
+					colorSelect2[] = {0.95,0.95,0.95,1};
+					colorSelectBackground[] = {1,1,1,0.25};
+					colorSelectBackground2[] = {1,1,1,0.25};
+					idc = 1893; //11390
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 				};						
-		        class UGV: RscControlsGroupNoScrollbars 
+			};					
+		};						
+		class UGV: RscControlsGroupNoScrollbars 
+		{
+		    onSetFocus = "[_this,""DEGA_RscAttributeOBJECT"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+		    idc = 12190;
+			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		    class controls
+		    {
+			    class Title: RscText
 				{
-				    //onSetFocus = "[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
-					idc = 12190;
-					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+					style = 16;
+					idc = 1895;
+					text = "Object Drop Selection";
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-					class controls
-					{
-						class Title: RscText
-						{
-							style = 16;
-							idc = 1895;
-							text = "Object Drop Selection";
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							colorBackground[] = {0,0,0,0.5};
-						};
-						class Value: RscListNBox
-						{
-							columns[] = {0.0,0.1,0.25};
-							colorSelect[] = {0.95,0.95,0.95,1};
-							colorSelect2[] = {0.95,0.95,0.95,1};
-							colorSelectBackground[] = {1,1,1,0.25};
-							colorSelectBackground2[] = {1,1,1,0.25};
-							idc = 1896;
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-						};						
-					};					
-				};				
-			};
-		};	
+					h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					colorBackground[] = {0,0,0,0.5};
+				};
+				class Value: RscListNBox
+				{
+					columns[] = {0.0,0.1,0.25};
+					colorSelect[] = {0.95,0.95,0.95,1};
+					colorSelect2[] = {0.95,0.95,0.95,1};
+					colorSelectBackground[] = {1,1,1,0.25};
+					colorSelectBackground2[] = {1,1,1,0.25};							
+					idc = 1896;
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+				};						
+			};					
+		};				
 		class Yes_No_Title: RscText
 		{
 			idc = 1898;
-			text = "Ammobox Has Arsenal?";
+			text = "Object Has Arsenal?";
 			x = "12 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "25.7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "9 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -2292,95 +3066,85 @@ class RscDisplayAttributesModuleVehicledrop: RscDisplayAttributes
 			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "27 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-		};
-		class Content: Content
+		};	
+		class CAS: RscControlsGroupNoScrollbars 
 		{
+			onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+			idc = 12190; //12190
 			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 			y = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-			w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "23.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";			
-			class Controls: controls
-			{		
-				class CAS: RscControlsGroupNoScrollbars 
+			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			class controls
+			{
+				class Title: RscText
 				{
-					onSetFocus = "[_this,""DEGA_RscAttributeCAS"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"");[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
-					idc = 12190; //12190
-					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-					y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+					style = 16;
+					idc = 1892; //10890
+					text = "Aircraft Selection";
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-					class controls
-					{
-						class Title: RscText
-						{
-							style = 16;
-							idc = 1892; //10890
-							text = "Aircraft Selection";
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							colorBackground[] = {0,0,0,0.5};
-						};
-						class Value: RscListNBox
-						{
-							columns[] = {0.0,0.1,0.25,0.6};
-							colorSelect[] = {0.95,0.95,0.95,1};
-							colorSelect2[] = {0.95,0.95,0.95,1};
-							colorSelectBackground[] = {1,1,1,0.25};
-							colorSelectBackground2[] = {1,1,1,0.25};
-							idc = 1893; //11390
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-						};						
-					};					
+					h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					colorBackground[] = {0,0,0,0.5};
+				};
+				class Value: RscListNBox
+				{
+					columns[] = {0.0,0.1,0.25,0.6};
+					colorSelect[] = {0.95,0.95,0.95,1};
+					colorSelect2[] = {0.95,0.95,0.95,1};
+					colorSelectBackground[] = {1,1,1,0.25};
+					colorSelectBackground2[] = {1,1,1,0.25};
+					idc = 1893; //11390
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 				};						
-		        class UGV: RscControlsGroupNoScrollbars 
+			};					
+		};						
+		class UGV: RscControlsGroupNoScrollbars 
+		{
+		   onSetFocus = "[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+			idc = 12190;
+			x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			class controls
+			{
+				class Title: RscText
 				{
-				    //onSetFocus = "[_this,""DEGA_RscAttributeUGV"",'Dega_CuratorCommon'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
-					idc = 12190;
-					x = "23.6 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+					style = 16;
+					idc = 1895;
+					text = "Object Drop Selection";
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					h = "11 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-					class controls
-					{
-						class Title: RscText
-						{
-							style = 16;
-							idc = 1895;
-							text = "Object Drop Selection";
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							colorBackground[] = {0,0,0,0.5};
-						};
-						class Value: RscListNBox
-						{
-							columns[] = {0.0,0.1,0.25};
-							colorSelect[] = {0.95,0.95,0.95,1};
-							colorSelect2[] = {0.95,0.95,0.95,1};
-							colorSelectBackground[] = {1,1,1,0.25};
-							colorSelectBackground2[] = {1,1,1,0.25};
-							idc = 1896;
-							x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-							h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-							sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-						};						
-					};					
-				};				
-			};
-		};
+					h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					colorBackground[] = {0,0,0,0.5};
+				};
+				class Value: RscListNBox
+				{
+					columns[] = {0.0,0.1,0.25};
+					colorSelect[] = {0.95,0.95,0.95,1};
+					colorSelect2[] = {0.95,0.95,0.95,1};
+					colorSelectBackground[] = {1,1,1,0.25};
+					colorSelectBackground2[] = {1,1,1,0.25};
+					idc = 1896;
+					x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+					h = "9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+				};						
+			};					
+		};				
 		class Yes_No_Title: RscText
 		{
 			idc = 1898;
-			text = "Vehicle Has Crew?";
+			text = "Object Has Crew?";
 			x = "12 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "25.7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "9 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";

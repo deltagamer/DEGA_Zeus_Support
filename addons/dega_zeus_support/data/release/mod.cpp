@@ -1,5 +1,5 @@
 
-name = "DEGA: Zeus Support v1.0";
+name = "DEGA: Zeus Support v1.2";
 description = "DEGA: Zeus Support Modification";
 picture = "\DEGA_Zeus_Support\data\release\logo_dega.paa";
 actionName = "";
