@@ -13,7 +13,7 @@ switch _mode do {
 		_ctrlValue ctrlsetfontheight GUI_GRID_H;
 
 		_playerSide = player call bis_fnc_objectside;
-		_selected = missionnamespace getvariable ["RscATtributeCAS_selected",""];
+		_selected = missionnamespace getvariable ["RscATtributeOBJECT_selected",""];
 		{
 			//--- Show only friendly planes (or all when curator is virtual)
 			_vehicle = gettext (_x >> "value");
@@ -49,7 +49,7 @@ switch _mode do {
 
 		_unit setvariable ["type_spawn",_vehicle,true];
 		_unit setvariable ["BIS_fnc_curatorAttributes",[],true];
-		missionnamespace setvariable ["RscATtributeCAS_selected",_vehicle];
+		missionnamespace setvariable ["RscATtributeOBJECT_selected",_vehicle];
 	};
 	case "onUnload": {
 		if (!isnil "RscAttributePostProcess_default") then {

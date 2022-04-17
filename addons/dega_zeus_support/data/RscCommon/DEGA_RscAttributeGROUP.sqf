@@ -23,6 +23,7 @@ switch _mode do {
 			_cfg = configfile >> "CfgGroups" >> _side_type >> _faction_type >> _type_type >> _class_type;
 			_cfg1 = configfile >> "CfgGroups" >> _side_type >> _faction_type;
 			if ([_playerSide,(getnumber (_cfg >> "side")) call bis_fnc_sidetype] call bis_fnc_arefriendly) then {
+				
 				_lnbAdd = _ctrlValue lnbaddrow ["","",gettext (_cfg >> "Name"),gettext (_cfg1 >> "Name")];
 				
 				_ctrlValue lnbsetdata [[_lnbAdd,0],_side_type];
@@ -36,7 +37,7 @@ switch _mode do {
 		} foreach ((configfile >> "cfgvehicles" >> typeof _unit >> "arguments" >> "GROUP" >> "values") call BIS_fnc_returnChildren);
 		_ctrlValue lnbsort [1,false];
 		for "_i" from 0 to ((lnbsize _ctrlValue select 0) - 1) do {
-			if ((_ctrlValue lnbdata [_i,0]) == _selected) exitwith {_ctrlValue lnbsetcurselrow _i;};
+			if ((_ctrlValue lnbdata [_i,3]) == _selected) exitwith {_ctrlValue lnbsetcurselrow _i;};
 		};
 		if (lnbcurselrow _ctrlValue < 0) then {
 			_ctrlValue lnbsetcurselrow 0;
@@ -54,11 +55,7 @@ switch _mode do {
 		_unit setvariable ["type_side",_side_type,true];
 		_unit setvariable ["type_faction",_faction_type,true];
 		_unit setvariable ["type_type",_type_type,true];
-		_unit setvariable ["type_group",_class_type,true];		
-		
-	    //debug
-	    //_myText = format ["%1\n%2\n%3\n%4", _side_type,_faction_type,_type_type,_class_type];
-	    //Hint _myText;
+		_unit setvariable ["type_group",_class_type,true];
 
 		_unit setvariable ["BIS_fnc_curatorAttributes",[],true];
 		missionnamespace setvariable ["RscATtributeGROUP_selected",_class_type];
@@ -70,3 +67,8 @@ switch _mode do {
 		RscAttributePostProcess_default = nil;
 	};
 };
+
+
+	    //debug
+	    //_myText = format ["%1\n%2\n%3\n%4", _side_type,_faction_type,_type_type,_class_type];
+	    //Hint _myText;

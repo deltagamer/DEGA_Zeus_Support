@@ -1968,7 +1968,7 @@ class CfgVehicles
 					//opfor
 					class JMSFALL_group_mil_inf_grunts_fireteam //B_Plane_CAS_01_F
 					{
-			            side = "West";
+			            side = "East";
 						faction = "JMSFALL_militia_fact";
 						type_type = "JMSFALL_group_mil_inf_grunts";
 						value_type = "JMSFALL_group_mil_inf_grunts_fireteam"; //B_Plane_CAS_01_F	
@@ -2046,6 +2046,177 @@ class CfgVehicles
 			direction = 1;
 		};
 	};	
+	class Base_ModulePlayerDroppod_F: Module_F
+	{
+		author = "$STR_A3_Bohemia_Interactive";
+		_generalMacro = "Base_ModuleParadrop_F";
+		scope = 1;
+		scopeCurator = 0;
+		isGlobal = 1;
+		isTriggerActivated = 1;
+		category = "DEGA_Zeus_Airdrop";
+		displayName = "DEGA Airdrops (Module - 0)";
+		icon = "\a3\Modules_F_Curator\Data\iconCAS_ca.paa";
+		portrait = "\a3\Modules_F_Curator\Data\portraitCAS_ca.paa";
+		function = "DEGA_fnc_moduleDroppod";
+		curatorCost = 5;
+		class Arguments
+		{
+			class Vehicle
+			{
+				displayName = "TIOW2 - Drop Pod Selection";
+				description = "";
+				class values
+				{
+					//blufor
+					class JMSFALL_B_Droppod_imc //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "JMSFALL_B_Droppod_imc"; //B_Plane_CAS_01_F
+						default = 1;
+					};					
+					class TIOW_Drop_Pod_BT //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_BT"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_BA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_BA"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_BR //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_BR"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_DA //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_DA"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_DA_HH //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_DA_HH"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_IF //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_IF"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_IH //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_IH"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_RG //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_RG"; //B_Plane_CAS_01_F
+						default = 1;
+					};
+					class TIOW_Drop_Pod_SAL //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_SAL"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class TIOW_Drop_Pod_SW //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_SW"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class TIOW_Drop_Pod_UM //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_UM"; //B_Plane_CAS_01_F
+						default = 1;
+					};	
+					class TIOW_Drop_Pod_WS //B_Plane_CAS_01_F
+					{
+						//name = "$STR_A3_CfgVehicles_B_Plane_CAS_01_F0";
+						value = "TIOW_Drop_Pod_WS"; //B_Plane_CAS_01_F
+						default = 1;
+					};						
+					//opfor
+					class JMSFALL_O_Droppod_mil
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "JMSFALL_O_Droppod_mil";
+					};					
+					class TIOW_Drop_Pod_AL
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_AL";
+					};
+					
+					class TIOW_Drop_Pod_BL
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_BL";
+					};
+					class TIOW_Drop_Pod_DG
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_DG";
+					};
+					class TIOW_Drop_Pod_EC
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_EC";
+					};
+					class TIOW_Drop_Pod_IW
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_IW";
+					};
+					class TIOW_Drop_Pod_NL
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_NL";
+					};
+					class TIOW_Drop_Pod_TS
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_TS";
+					};
+					class TIOW_Drop_Pod_WB
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_WB";
+					};
+					class TIOW_Drop_Pod_WE
+					{
+						name = "$STR_A3_CfgVehicles_O_Plane_CAS_02_F0";
+						value = "TIOW_Drop_Pod_WE";
+					};					
+				};
+			};
+			class GROUP
+			{
+				displayName = "Group Drop - Group Selection";
+				description = "";
+				class values
+				{
+                };
+            };				
+		};		
+		class ModuleDescription: ModuleDescription
+		{
+			description = "$STR_A3_CfgVehicles_ModuleCAS_F_ModuleDescription";
+			position = 1;
+			direction = 1;
+		};
+	};		
 	class Base_ModuleSupplydrop_F: Module_F
 	{
 		author = "$STR_A3_Bohemia_Interactive";
@@ -2716,6 +2887,23 @@ class CfgVehicles
 		function = "DEGA_fnc_moduleDroppod";		
 		delete Arguments;
 	};	
+	class ModulePlayerDroppod_F: Base_ModulePlayerDroppod_F
+	{
+		author = "Deltagamer";
+		_generalMacro = "ModuleDroppod_F";
+		scope = 1;
+		scopeCurator = 2;
+		simulation = "house";
+		category = "DEGA_Zeus_Airdrop";
+		displayName = "Player Drop Pod Insertion";
+		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
+		model = "\a3\Modules_F_Curator\CAS\surfaceMissile.p3d";
+		curatorInfoType = "RscDisplayAttributesModuleParadrop";
+		curatorCost = 1;
+		moduleCAStype = 0;
+		function = "DEGA_fnc_moduleDroppod";		
+		delete Arguments;
+	};		
 	class ModuleSupplydrop_F: Base_ModuleSupplydrop_F
 	{
 		author = "Deltagamer";

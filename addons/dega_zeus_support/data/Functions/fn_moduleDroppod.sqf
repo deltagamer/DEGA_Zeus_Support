@@ -60,14 +60,19 @@ if (_activated) then {
 	_duration = ([0,0] distance [_dis,_alt]) / _speed;
 
 	//--- Create plane
+	_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
+	_type_spawnPos set [2,(_pos select 2) + _alt];
 	_planePos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
 	_planePos set [2,(_pos select 2) + _alt];
 	_planeSide = (getnumber (_planeCfg >> "side")) call bis_fnc_sideType;
 	_planeArray = [_planePos,_dir,_planeClass,_planeSide] call bis_fnc_spawnVehicle;
+	_type_spawnArray = [_type_spawnPos, _type_spawnSide, (_type_spawnCfg),[],[],[],[],[],_dir] call BIS_fnc_spawnGroup;
 	_plane = _planeArray select 0;
+	_type_spawn = (Units _type_spawnArray); 
 	_plane setposasl _planePos;
 	_plane spawn {sleep 3; _this spawn WBK_DropPodLaunchSequance;};
 	{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
+	{ _x addCuratorEditableObjects [_type_spawn,true] } forEach (allCurators);
 	
 	private ["_grp2","_man1","_man2","_jumpDelay","_side"];
 
@@ -93,6 +98,7 @@ if (_activated) then {
     	_x moveInAny _plane;		
 		_x allowFleeing 0;
 		{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
+		{ _x addCuratorEditableObjects [_type_spawn,true] } forEach (allCurators);
 	} foreach _type_spawn;	
 	
 	_plane setvariable ["logic",_logic];
