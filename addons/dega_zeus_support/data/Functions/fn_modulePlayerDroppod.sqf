@@ -29,17 +29,7 @@ if (_activated) then {
 	_planeCfg = configfile >> "cfgvehicles" >> _planeClass;
 	//if !(isclass _planeCfg) exitwith {["Vehicle class '%1' not found",_planeClass] call bis_fnc_error; false};
 	
-	_type_spawnSide = _logic getvariable ["type_side","West"];
-	_type_spawnFaction = _logic getvariable ["type_faction","BLU_F"];
-	_type_spawnType = _logic getvariable ["type_type","Infantry"];
-	_type_spawnClass = _logic getvariable ["type_group","BUS_InfSquad"];
-	
-	_type_spawnCfg = configfile >> "CfgGroups" >> _type_spawnSide >> _type_spawnFaction >> _type_spawnType >> _type_spawnClass;
-	//if !(isclass _type_spawnCfg) exitwith {["Spawn class '%1' not found",_type_spawnClass] call bis_fnc_error; false};	
-	
-	_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
-	
-	
+	_type_spawnClass = _logic getvariable ["type_player",""];
 	
 	_posATL = getposatl _logic;	
 	_pos = +_posATL;
@@ -60,7 +50,6 @@ if (_activated) then {
 	_planePos set [2,(_pos select 2) + _alt];
 	_planeSide = (getnumber (_planeCfg >> "side")) call bis_fnc_sideType;
 	_planeArray = [_planePos,_dir,_planeClass,_planeSide] call bis_fnc_spawnVehicle;
-	//_type_spawnArray = [_type_spawnPos, _type_spawnSide, (_type_spawnCfg),[],[],[],[],[],_dir] call BIS_fnc_spawnGroup;
 	_plane = _planeArray select 0;
 	//_type_spawn = (Units _type_spawnArray); 
 	_plane setposasl _planePos;
@@ -68,11 +57,13 @@ if (_activated) then {
 	{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
 	//{ _x addCuratorEditableObjects [_type_spawn,true] } forEach (allCurators);	
 	
-	//debug
-	//_myText = format ["%1\n%2\n%3\n%4", _type_spawnSide, _type_spawnFaction,_type_spawnType,_type_spawnClass];
-	//Hint _myText;
-
+	_playerObject = allPlayers select ( allPlayers findIf {(name _x) isEqualTo _type_spawnClass;} );	
 	
+	//debug
+	_myText = format ["%1",_playerObject];
+	Hint _myText;
+	
+	_playerObject moveInAny _plane;
 
 	//--- Restore custom direction
 	_dirVar = _fnc_scriptname + typeof _logic;
@@ -96,7 +87,6 @@ if (_activated) then {
 	//--- Play radio
 	[_plane,"CuratorModuleCAS"] call bis_fnc_curatorSayMessage;
 
-	
 	if !(isnull _logic) then {
 		sleep 1;
 		deletevehicle _logic;
