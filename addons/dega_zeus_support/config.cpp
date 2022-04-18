@@ -17,7 +17,7 @@ class CfgPatches
 		url = "";
 		requiredAddons[] = {"A3_Data_F_Curator"};
 		requiredVersion = 0.1;
-		units[] = {"ModuleParadrop_F","ModuleFastrope_F","ModuleDroppod_F","ModuleSupplydrop_F","ModuleVehicledrop_F","ModuleUGVdrop_F"};		
+		units[] = {"ModuleParadrop_F","ModuleFastrope_F","ModuleDroppod_F","ModulePlayerDroppod_F","ModuleSupplydrop_F","ModuleVehicledrop_F","ModuleUGVdrop_F"};		
 		weapons[] = {};
 	};
 };
@@ -45,6 +45,7 @@ class CfgFunctions
 			class moduleVehicledrop;
 			class moduleUGVdrop;
 			class moduleFastrope;
+			class modulePlayerDroppod;
 		};
 	};
 };
@@ -2058,7 +2059,7 @@ class CfgVehicles
 		displayName = "DEGA Airdrops (Module - 0)";
 		icon = "\a3\Modules_F_Curator\Data\iconCAS_ca.paa";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCAS_ca.paa";
-		function = "DEGA_fnc_moduleDroppod";
+		function = "DEGA_fnc_modulePlayerDroppod";
 		curatorCost = 5;
 		class Arguments
 		{
@@ -2901,7 +2902,7 @@ class CfgVehicles
 		curatorInfoType = "RscDisplayAttributesModuleParadrop";
 		curatorCost = 1;
 		moduleCAStype = 0;
-		function = "DEGA_fnc_moduleDroppod";		
+		function = "DEGA_fnc_modulePlayerDroppod";		
 		delete Arguments;
 	};		
 	class ModuleSupplydrop_F: Base_ModuleSupplydrop_F

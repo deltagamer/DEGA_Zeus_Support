@@ -87,24 +87,6 @@ if (_activated) then {
 	_veh = _this select 0;
     _veh_type = (typeOf _veh); 
 	
-	{ _plane deleteVehicleCrew _x } forEach crew _plane;
-	
-	//--- Create UGV
-	_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
-	_type_spawnPos set [2,(_pos select 2) + _alt];
-
-	_type_spawnArray = [_type_spawnPos, _type_spawnSide, (_type_spawnCfg),[],[],[],[],[],_dir] call BIS_fnc_spawnGroup;
-	_type_spawn = (Units _type_spawnArray); 
-    _type_spawnArray setFormation "DIAMOND";
-	private ["_para"];
-	{
-		_x setPos [(getPos _logic) select 0,(getPos _logic) select 1, 250]; 
-    	_x moveInAny _plane;		
-		_x allowFleeing 0;
-		{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
-		{ _x addCuratorEditableObjects [_type_spawn,true] } forEach (allCurators);
-	} foreach _type_spawn;	
-	
 	_plane setvariable ["logic",_logic];
 	_logic setvariable ["plane",_plane];	
 
