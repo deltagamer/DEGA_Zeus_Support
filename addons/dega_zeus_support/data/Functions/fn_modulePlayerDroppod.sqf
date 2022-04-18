@@ -28,8 +28,10 @@ if (_activated) then {
 	_planeClass = _logic getvariable ["vehicle","B_T_VTOL_01_infantry_F"];
 	_planeCfg = configfile >> "cfgvehicles" >> _planeClass;
 	//if !(isclass _planeCfg) exitwith {["Vehicle class '%1' not found",_planeClass] call bis_fnc_error; false};
-	
-	_type_spawnClass = _logic getvariable ["type_player",""];
+
+    //_selected = missionnamespace getvariable ["RscATtributePLAYERGROUP_selected",""];
+	_selected = missionnamespace getvariable ["type_group",""];
+	_selected = _logic getvariable ["type_group",""];
 	
 	_posATL = getposatl _logic;	
 	_pos = +_posATL;
@@ -57,11 +59,11 @@ if (_activated) then {
 	{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
 	//{ _x addCuratorEditableObjects [_type_spawn,true] } forEach (allCurators);	
 	
-	_playerObject = allPlayers select ( allPlayers findIf {(name _x) isEqualTo _type_spawnClass;} );	
+	_playerObject = allPlayers select ( allPlayers findIf {(name _x) isEqualTo _selected;} );	
 	
 	//debug
-	_myText = format ["%1",_playerObject];
-	Hint _myText;
+	//_myText = format ["%1",_playerObject];
+	//Hint _myText;
 	
 	_playerObject moveInAny _plane;
 
