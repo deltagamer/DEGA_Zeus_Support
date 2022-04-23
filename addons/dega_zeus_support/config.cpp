@@ -2896,7 +2896,7 @@ class CfgVehicles
 		scopeCurator = 2;
 		simulation = "house";
 		category = "DEGA_Zeus_Airdrop";
-		displayName = "Player Drop Pod Insertion";
+		displayName = "Player or Arsenal Drop Pod";
 		portrait = "\a3\Modules_F_Curator\Data\portraitCASGun_ca.paa";
 		model = "\a3\Modules_F_Curator\CAS\surfaceMissile.p3d";
 		curatorInfoType = "RscDisplayAttributesModulePLAYERDP";
@@ -3470,7 +3470,7 @@ class RscDisplayAttributesModulePLAYERDP: RscDisplayAttributes
 					sizeEx = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 				};						
 			};			
-		};
+		};	
 		class ButtonOK: RscButtonMenuOK
 		{
 			x = "28.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";

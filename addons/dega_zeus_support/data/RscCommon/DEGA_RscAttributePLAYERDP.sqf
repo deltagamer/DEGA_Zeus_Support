@@ -23,6 +23,8 @@ switch _mode do {
 
 			};
 		} foreach allPlayers;   //foreach allUnits;
+		_lnbAdd1 = _ctrlValue lnbaddrow ["","","Virtual Arsenal"];
+		_ctrlValue lnbsetdata [[_lnbAdd1,0],"VirtualArsenal"];
 		_ctrlValue lnbsort [1,false];
 		for "_i" from 0 to ((lnbsize _ctrlValue select 0) - 1) do {
 			if ((_ctrlValue lnbdata [_i,0]) == _selected) exitwith {_ctrlValue lnbsetcurselrow _i;};
@@ -35,6 +37,15 @@ switch _mode do {
 		_display = _params select 0;
 		_ctrlValue = _display displayctrl DEGA_IDC_RSCATTRIBUTEPLAYERDP_VALUE;
 		_vehicle = _ctrlValue lnbdata [lnbcurselrow _ctrlValue,0];
+		
+        _ctrlCheckboxCreateEmptyVehicle = _display displayCtrl DEGA_IDC_RSCATTRIBUTECHECKED_VALUE;
+		
+        _createEmptyVehicle = false;
+        _createEmptyVehicle = cbChecked _ctrlCheckboxCreateEmptyVehicle;
+
+        //hint format ["_ctrlCheckboxCreateEmptyVehicle: \n%1", (cbChecked _ctrlCheckboxCreateEmptyVehicle)];		
+
+        _unit setVariable ["HasArsenal",_createEmptyVehicle, true];			
 
 		_unit setvariable ["type_group",_vehicle,true];
 		_unit setvariable ["BIS_fnc_curatorAttributes",[],true];

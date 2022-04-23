@@ -46,8 +46,6 @@ if (_activated) then {
 	_duration = ([0,0] distance [_dis,_alt]) / _speed;
 
 	//--- Create plane
-	_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
-	_type_spawnPos set [2,(_pos select 2) + _alt];
 	_planePos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
 	_planePos set [2,(_pos select 2) + _alt];
 	_planeSide = (getnumber (_planeCfg >> "side")) call bis_fnc_sideType;
@@ -57,16 +55,23 @@ if (_activated) then {
 	_plane setposasl _planePos;
 	_plane spawn {sleep 3; _this spawn WBK_DropPodLaunchSequance;};
 	{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
-	//{ _x addCuratorEditableObjects [_type_spawn,true] } forEach (allCurators);	
+		
 	
-	_playerObject = allPlayers select ( allPlayers findIf {(name _x) isEqualTo _selected;} );	
+	//hint format ["%1", _selected];
 	
-	//debug
-	//_myText = format ["%1",_playerObject];
-	//Hint _myText;
+	if (_selected isEqualTo "VirtualArsenal") then { 
 	
+  	_type_spawn = createVehicle ["Box_NATO_AmmoVeh_F", position _plane, [], 0, "FLY"];
+	_type_spawn setPos [(getPos _plane) select 0,(getPos _plane) select 1, 0];
+	_type_spawn attachTo [_plane, [0,0.9,1.8]];
+	_type_spawn addAction ["<t color='#0099FF'>Virtual Arsenal</t>",{["Open", true] spawn bis_fnc_arsenal},[false],6,false,true,"","(_target distance _this) < 7"];
+	deleteVehicleCrew _plane;
+    { _x addCuratorEditableObjects [[_type_spawn],true] } forEach (allCurators);
+	} else {
+	_playerObject = allPlayers select (allPlayers findIf {(name _x) isEqualTo _selected;});
 	_playerObject moveInAny _plane;
-
+	};
+	
 	//--- Restore custom direction
 	_dirVar = _fnc_scriptname + typeof _logic;
 	_logic setdir (missionnamespace getvariable [_dirVar,direction _logic]);
@@ -80,6 +85,18 @@ if (_activated) then {
 	_veh = _this select 0;
     _veh_type = (typeOf _veh); 
 	
+		//--- Check Box
+	/*	
+    _checkClass = _logic getvariable "HasArsenal";
+    if (_checkClass == true) then {
+	//--- Create Box
+	_type_spawn = createVehicle ["Box_NATO_AmmoVeh_F", position _plane, [], 0, "FLY"];
+	_type_spawn setPos [(getPos _plane) select 0,(getPos _plane) select 1, 0];
+	_type_spawn attachTo [_plane, [0,0.7,2]];
+	_type_spawn addAction ["<t color='#0099FF'>Virtual Arsenal</t>",{["Open", true] spawn bis_fnc_arsenal},[false],6,false,true,"","(_target distance _this) < 7"];
+	deleteVehicleCrew _plane;
+	} else {nil};	
+	*/
 	_plane setvariable ["logic",_logic];
 	_logic setvariable ["plane",_plane];	
 
@@ -94,4 +111,5 @@ if (_activated) then {
 		deletevehicle _logic;
 		waituntil {_plane distance _pos < _dis || !alive _plane};
 	};
+	
 };
