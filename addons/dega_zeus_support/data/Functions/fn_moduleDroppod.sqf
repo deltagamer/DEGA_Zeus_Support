@@ -29,17 +29,17 @@ if (_activated) then {
 	_planeCfg = configfile >> "cfgvehicles" >> _planeClass;
 	//if !(isclass _planeCfg) exitwith {["Vehicle class '%1' not found",_planeClass] call bis_fnc_error; false};
 	
-	_type_spawnSide = _logic getvariable ["type_side","West"];
-	_type_spawnFaction = _logic getvariable ["type_faction","BLU_F"];
-	_type_spawnType = _logic getvariable ["type_type","Infantry"];
-	_type_spawnClass = _logic getvariable ["type_group","BUS_InfSquad"];
 	
-	_type_spawnCfg = configfile >> "CfgGroups" >> _type_spawnSide >> _type_spawnFaction >> _type_spawnType >> _type_spawnClass;
-	//if !(isclass _type_spawnCfg) exitwith {["Spawn class '%1' not found",_type_spawnClass] call bis_fnc_error; false};	
+    private _var = missionNamespace getVariable "TAG_myName";
+    if (isNil "_var") then
+    {
+	    missionNamespace setVariable ["varName", FAIL];
+	    _var = FAIL;
+    };
+
+    //Hint str _var;	
 	
-	_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
-	
-	
+	_type_spawnCfg = _var;
 	
 	_posATL = getposatl _logic;	
 	_pos = +_posATL;
@@ -68,11 +68,6 @@ if (_activated) then {
 	{ _x addCuratorEditableObjects [[_plane],true] } forEach (allCurators);
 	//{ _x addCuratorEditableObjects [_type_spawn,true] } forEach (allCurators);	
 	
-	//debug
-	//_myText = format ["%1\n%2\n%3\n%4", _type_spawnSide, _type_spawnFaction,_type_spawnType,_type_spawnClass];
-	//Hint _myText;
-
-	
 
 	//--- Restore custom direction
 	_dirVar = _fnc_scriptname + typeof _logic;
@@ -93,7 +88,13 @@ if (_activated) then {
 	_type_spawnPos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
 	_type_spawnPos set [2,(_pos select 2) + _alt];
 
-	_type_spawnArray = [_type_spawnPos, _type_spawnSide, (_type_spawnCfg),[],[],[],[],[],_dir] call BIS_fnc_spawnGroup;
+	_type_spawnSide = (getnumber (_type_spawnCfg >> "side")) call bis_fnc_sideType;
+	
+	
+	//_type_spawnArray = [_type_spawnPos, _type_spawnSide, (_type_spawnCfg),[],[],[],[],[],_dir] call BIS_fnc_spawnGroup;
+	_type_spawnArray = [_type_spawnPos, _type_spawnSide, (_type_spawnCfg)] call BIS_fnc_spawnGroup;
+	
+	
 	_type_spawn = (Units _type_spawnArray); 
     _type_spawnArray setFormation "DIAMOND";
 	private ["_para"];

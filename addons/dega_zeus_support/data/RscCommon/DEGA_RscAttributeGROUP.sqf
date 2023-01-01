@@ -5,60 +5,74 @@
 _mode = _this select 0;
 _params = _this select 1;
 _unit = _this select 2;
+_cbo = ((findDisplay 1900) displayCtrl (1896));
+_cbo ctrlRemoveAllEventHandlers "LBSelChanged";
+
+private _varSidePod = missionNamespace getVariable "SideDropPod";
+if (isNil "_varSidePod") then
+{
+	missionNamespace setVariable ["varName", "West"];
+	_varSidePod = "West";
+};
 
 switch _mode do {
-	case "onLoad": {
-		_display = _params select 0;
-		_ctrlValue = _display displayctrl DEGA_IDC_RSCATTRIBUTEGROUP_VALUE;
-		_ctrlValue ctrlsetfontheight GUI_GRID_H;
+	case "onLoad": 
+	{
+        _cbo setVariable ["configClasses", []]; // allows to store arbitrary data on the GUI control itself
+        private _storage = _cbo getVariable "configClasses";
+ 
+        private _groupsWestFactions = "true" configClasses (configFile >> "CfgGroups" >> _varSidePod); 
+        { 
+            private _factionCategories = "true" configClasses _x; 
+            private _factionName = getText (_x >> "name");
+            { 
+            private _groups = "true" configClasses _x;
+            private _categoryName = getText (_x >> "name");
+            { 
+              private _groupName = getText (_x >> "name");
+              // filtering starts
+              private _groupUnits = "'unit' in tolower (configName _x)" configClasses _x;
+              if (count _groupUnits > 4) then {continue}; // skip groups bigger than 4
+        	  if (count _groupUnits < 1) then {continue}; // skip groups less than 1
+              if (_groupUnits findIf {!(getText (_x >> "vehicle") isKindOf "CAManBase")} > -1) then {continue}; // try to find non-infantry unit in group, if there is one - skip
 
-		_playerSide = player call bis_fnc_objectside;
-		_selected = missionnamespace getvariable ["RscATtributeGROUP_selected",""];
-		{
-			//--- Show only friendly planes (or all when curator is virtual)
-			_side_type = gettext (_x >> "side");
-			_faction_type = gettext (_x >> "faction");
-			_type_type = gettext (_x >> "type_type");
-			_class_type = gettext (_x >> "value_type");
-			_cfg = configfile >> "CfgGroups" >> _side_type >> _faction_type >> _type_type >> _class_type;
-			_cfg1 = configfile >> "CfgGroups" >> _side_type >> _faction_type;
-			if ([_playerSide,(getnumber (_cfg >> "side")) call bis_fnc_sidetype] call bis_fnc_arefriendly) then {
-				
-				_lnbAdd = _ctrlValue lnbaddrow ["","",gettext (_cfg >> "Name"),gettext (_cfg1 >> "Name")];
-				
-				_ctrlValue lnbsetdata [[_lnbAdd,0],_side_type];
-				_ctrlValue lnbsetdata [[_lnbAdd,1],_faction_type];
-				_ctrlValue lnbsetdata [[_lnbAdd,2],_type_type];
-				_ctrlValue lnbsetdata [[_lnbAdd,3],_class_type];
-				
-				_ctrlValue lnbsetpicture [[_lnbAdd,0],gettext (configfile >> "cfgfactionclasses" >> gettext (_cfg >> "faction") >> "icon")];
-				_ctrlValue lnbsetpicture [[_lnbAdd,1],gettext (_cfg >> "picture")];
-			};
-		} foreach ((configfile >> "cfgvehicles" >> typeof _unit >> "arguments" >> "GROUP" >> "values") call BIS_fnc_returnChildren);
-		_ctrlValue lnbsort [1,false];
-		for "_i" from 0 to ((lnbsize _ctrlValue select 0) - 1) do {
-			if ((_ctrlValue lnbdata [_i,3]) == _selected) exitwith {_ctrlValue lnbsetcurselrow _i;};
-		};
-		if (lnbcurselrow _ctrlValue < 0) then {
-			_ctrlValue lnbsetcurselrow 0;
-		};
+              // filtering ends 
+              private _index = _cbo lbAdd (format ["%1 >> %2 >> %3 (%4 units)", _factionName, _categoryName, _groupName, count _groupUnits]); 			  
+			  
+              _storage set [_index, _x]; // store the config with the same index
+              _cbo lbSetPicture [_index, getText (_x >> "icon")];
+
+            } forEach _groups; 
+          } forEach _factionCategories; 
+        } forEach _groupsWestFactions;
+		
+	    //debug
+		
+	    //_myText = format ["%1",_groupUnits];
+	    //Hint _myText;
+		 
+        _cbo ctrlAddEventHandler ["LBSelChanged", {
+            params ["_control", "_cboCurSel"];
+            if (_cboCurSel < 0) exitWith {};
+            private _storage = _control getVariable "configClasses"; // get the saved config from the saved array
+            //systemChat str (_storage select _cboCurSel);
+			_side_type = (_storage select _cboCurSel);
+			
+			_unit setvariable ["type_side",_side_type];
+			missionNamespace setVariable ["TAG_myName", _side_type];
+			
+			//hint str (_side_type);
+        }];			
+
 	};
-	case "confirmed": {
-		_display = _params select 0;
-		_ctrlValue = _display displayctrl DEGA_IDC_RSCATTRIBUTEGROUP_VALUE;
-		
-		_side_type = _ctrlValue lnbdata [lnbcurselrow _ctrlValue,0];
-		_faction_type = _ctrlValue lnbdata [lnbcurselrow _ctrlValue,1];
-		_type_type = _ctrlValue lnbdata [lnbcurselrow _ctrlValue,2];
-		_class_type = _ctrlValue lnbdata [lnbcurselrow _ctrlValue,3];
-		
-		_unit setvariable ["type_side",_side_type,true];
-		_unit setvariable ["type_faction",_faction_type,true];
-		_unit setvariable ["type_type",_type_type,true];
-		_unit setvariable ["type_group",_class_type,true];
+	case "confirmed": 
+	{
+        //_unit setVariable ["VehicleCrew",_createEmptyVehicle, true];		
 
+		//_unit setvariable ["configClasses",_vehicle,true];
 		_unit setvariable ["BIS_fnc_curatorAttributes",[],true];
-		missionnamespace setvariable ["RscATtributeGROUP_selected",_class_type];
+		//missionnamespace setvariable ["RscATtributeGROUP_selected",_vehicle];	
+		lbClear _cbo;
 	};
 	case "onUnload": {
 		if (!isnil "RscAttributePostProcess_default") then {
@@ -67,8 +81,3 @@ switch _mode do {
 		RscAttributePostProcess_default = nil;
 	};
 };
-
-
-	    //debug
-	    //_myText = format ["%1\n%2\n%3\n%4", _side_type,_faction_type,_type_type,_class_type];
-	    //Hint _myText;
